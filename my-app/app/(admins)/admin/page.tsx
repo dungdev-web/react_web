@@ -216,7 +216,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <div className="doanhthu">
-                        <span>{salesData.currentMonthTotalSold.toLocaleString()}</span>
+                        <span>{salesData.currentMonthTotalSold?.toLocaleString()}</span>
                         <div className={salesData.percentageChange >= 0 ? "grow1" : "grow2"}><p>{Math.abs(salesData.percentageChange).toFixed(2)}%</p>
                             {salesData.percentageChange >= 0 ? (
                                 <i className="fa-solid fa-arrow-up rotate-arrow text-green-500"></i>
@@ -479,7 +479,7 @@ export default function Dashboard() {
                             </tr>
                         </thead>
                         <tbody>
-                            {donHang.map((order) => {
+                            {donHang?.map((order) => {
                                 const finalTotal = finalTotals[order.cart_id]; // Get the final total from state
                                 const tongtien = order.cartitem?.reduce((total: number, item: any) => {
                                     const price = item.product.discount_price || item.product.price;

@@ -5,6 +5,7 @@ import { ISanPham } from "../components/cautrucdata";
 import Show1SP from "../components/Show1SP";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { API_URL } from "../config/config";
 
 export default function SearchPage() {
     const searchParams = useSearchParams();
@@ -18,7 +19,7 @@ export default function SearchPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/timkiem/${tu_khoa}/${page}`);
+                const res = await fetch(`${API_URL}/timkiem/${tu_khoa}/${page}`);
                 const data = await res.json();
 
                 console.log("Dữ liệu API nhận được:", data);

@@ -1,15 +1,16 @@
 import { ILoai,ISanPham } from "../../components/cautrucdata";
 import Show1SP from "../../components/Show1SP";
+import { API_URL } from "../../config/config";
 import "../../style/sptrongloai.css";
 export default async function SPTrongLoai({ params }: { params: { id: number } }) {
     //lấy tham số id trong router
     let category_id = params.id;
     //call api lấy sp trong loại
-    let resSP = await fetch(`http://localhost:3000/api/sptrongloai/${category_id}`);
+    let resSP = await fetch(`${API_URL}/sptrongloai/${category_id}`);
     let dataSP = await resSP.json();
     let sp_arr: ISanPham[] = dataSP as ISanPham[];
     //call api lấy loại
-    let resLoai = await fetch(`http://localhost:3000/api/loai/${category_id}`);
+    let resLoai = await fetch(`${API_URL}/loai/${category_id}`);
     let kq_loai: any = await resLoai.json();
     let loai: ILoai = kq_loai as ILoai;
     return (

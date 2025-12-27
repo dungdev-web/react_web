@@ -6,6 +6,7 @@ import { ICart, IUser, Province, District, Ward, IAddress } from "../components/
 import { useRouter } from "next/navigation";
 import "../style/checkout.css"
 import Swal from "sweetalert2";
+import { API_URL } from "../config/config";
 export default function ThanhToan() {
 
     const [user, setUser] = useState<IUser | null>(null);
@@ -72,7 +73,7 @@ export default function ThanhToan() {
                 return;
             }
             try {
-                const res = await fetch("http://localhost:3000/api/check-auth", {
+                const res = await fetch(`${API_URL}/check-auth`, {
                     method: "GET",
                     credentials: "include",
                     headers: {
@@ -133,7 +134,7 @@ export default function ThanhToan() {
         }
 
         try {
-            const res = await fetch("http://localhost:3000/api/luudonhang", {
+            const res = await fetch(`${API_URL}/luudonhang`, {
                 method: "POST",
                 body: JSON.stringify({ user_id, ghi_chu, payment: paymentCode, voucher: voucherCode, email, products: listSP, address: dia_chi }),
                 headers: { 'Content-Type': 'application/json' },
@@ -161,7 +162,7 @@ export default function ThanhToan() {
     };
 
     const luuchitietdonhang = async (cart_id: number, cart: ICart[]) => {
-        let url = "http://localhost:3000/api/luugiohang";
+        let url = `${API_URL}/luugiohang`;
         try {
             let promises = cart.map(sp =>
                 fetch(url, {
@@ -185,7 +186,7 @@ export default function ThanhToan() {
         if (!voucherCode) return;
 
         try {
-            const res = await fetch("http://localhost:3000/api/voucher/apply", {
+            const res = await fetch(`${API_URL}/voucher/apply`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ code: voucherCode, order_total: subtotal }),
@@ -213,7 +214,7 @@ export default function ThanhToan() {
         const fetchAddresses = async () => {
             const userId = user?.user_id;
             try {
-                const res = await fetch(`http://localhost:3000/api/diachi/${userId}`);
+                const res = await fetch(`${API_URL}/diachi/${userId}`);
                 const data = await res.json();
                 if (res.ok) {
                     setSelectaddress(data.dia_chi);
@@ -473,7 +474,7 @@ export default function ThanhToan() {
 //             }
 
 //             try {
-//                 const res = await fetch("http://localhost:3000/api/check-auth", {
+//                 const res = await fetch("${API_URL}/check-auth", {
 //                     method: "GET",
 //                     credentials: "include",
 //                     headers: {
@@ -527,7 +528,7 @@ export default function ThanhToan() {
 //         }
 
 //         try {
-//             const res = await fetch("http://localhost:3000/api/luudonhang", {
+//             const res = await fetch("${API_URL}/luudonhang", {
 //                 method: "POST",
 //                 body: JSON.stringify({
 //                     user_id,
@@ -556,7 +557,7 @@ export default function ThanhToan() {
 //         if (!voucherCode) return;
 
 //         try {
-//             const res = await fetch("http://localhost:3000/api/voucher/apply", {
+//             const res = await fetch("${API_URL}/voucher/apply", {
 //                 method: "POST",
 //                 headers: { "Content-Type": "application/json" },
 //                 body: JSON.stringify({ code: voucherCode, order_total: subtotal }),

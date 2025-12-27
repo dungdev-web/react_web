@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
 import { IUser } from "./cautrucdata";
+import { API_URL } from "../config/config";
 
 interface DecodedToken {
   role: string;
@@ -36,7 +37,7 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
         setIsAuthorized(true); // ✅ Cho phép hiển thị ngay
 
         // ✅ Gọi API để xác minh lại phía server
-        const res = await fetch("http://localhost:3000/api/check-auth", {
+        const res = await fetch(`${API_URL}/check-auth`, {
           method: "GET",
           credentials: "include",
           headers: {

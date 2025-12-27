@@ -14,6 +14,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Swal from "sweetalert2";
 import { themSP1 } from "@/lib/cartSlice";
+import { API_URL } from "../../config/config";
 export default function ChitietSanPham() {
   const dispatch = useDispatch();
   const params = useParams();
@@ -44,7 +45,7 @@ export default function ChitietSanPham() {
       if (!token) return;
 
       try {
-        const res = await fetch("http://localhost:3000/api/check-auth", {
+        const res = await fetch(`${API_URL}/check-auth`, {
           method: "GET",
           credentials: "include",
           headers: { "Authorization": `Bearer ${token}` },
@@ -70,11 +71,11 @@ export default function ChitietSanPham() {
   useEffect(() => {
     if (!id) return;
 
-    fetch(`http://localhost:3000/api/sp/${id}`)
+    fetch(`${API_URL}/sp/${id}`)
       .then((res) => res.json())
       .then((data) => setSp(data));
 
-    fetch(`http://localhost:3000/api/sp-tuong-tu/${id}`)
+    fetch(`${API_URL}/sp-tuong-tu/${id}`)
       .then((res) => res.json())
       .then((data) => setSPlienquan(data))
       .catch((err) => console.error("Lỗi khi lấy sản phẩm liên quan:", err));
@@ -91,7 +92,7 @@ export default function ChitietSanPham() {
     }
   
     try {
-      const res = await fetch(`http://localhost:3000/api/binhluan/${id}`);
+      const res = await fetch(`${API_URL}/binhluan/${id}`);
   
       if (!res.ok) {
         if (res.status === 404) {
@@ -137,7 +138,7 @@ export default function ChitietSanPham() {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/api/thembinhluan/${id}`, {
+      const res = await fetch(`${API_URL}/thembinhluan/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

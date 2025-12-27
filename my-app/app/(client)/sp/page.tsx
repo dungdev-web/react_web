@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Show1SP from "../components/Show1SP";
 import { ISanPham } from "../components/cautrucdata";
 import "../style/sanpham.css";
+import { API_URL } from "../config/config";
 export default function SanPham() {
   const [sp, setSp] = useState<ISanPham[]>([]);
   const [page, setPage] = useState(1);
@@ -14,7 +15,7 @@ export default function SanPham() {
   const fetchSanPham = async (pageNum: number, sortBy: string) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/phantrang?page=${pageNum}&limit=${pageSize}&sortby=${sortBy}`
+        `${API_URL}/phantrang?page=${pageNum}&limit=${pageSize}&sortby=${sortBy}`
       );
       const data = await res.json();
   

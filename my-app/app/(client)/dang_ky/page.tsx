@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import "../style/login.css";
+import { API_URL } from "../config/config";
 export default function DangKy() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -21,7 +22,7 @@ export default function DangKy() {
         }
 
         try {
-            const res = await fetch("http://localhost:3000/api/signup", {
+            const res = await fetch(`${API_URL}/signup`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password, name,phone }),
@@ -45,7 +46,7 @@ export default function DangKy() {
         e.preventDefault();
 
         try {
-            const res = await fetch("http://localhost:3000/api/verify-otp", {
+            const res = await fetch(`${API_URL}/verify-otp`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, otp }),

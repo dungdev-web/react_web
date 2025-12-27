@@ -5,6 +5,7 @@ import parse from 'html-react-parser';
 import truncate from 'html-truncate';
 import { useState,useEffect, JSX } from "react";
 import { IBlog } from "../components/cautrucdata";
+import { API_URL } from "../config/config";
 export default function Blog() {
     const [blog,setBlog]=useState<IBlog[]>([]);
     const getTruncatedHTML = (html: string, limit: number = 120): JSX.Element => {
@@ -13,7 +14,7 @@ export default function Blog() {
         return <>{parse(truncated)}</>; // Không bọc trong <p> nếu đã có thẻ block bên trong
       };
     useEffect(() => {
-        fetch('http://localhost:3000/api/blog')
+        fetch(`${API_URL}/blog`)
         .then(response => response.json())
         .then(data => setBlog(data.blogs))
         }, []);

@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, useRef } from 'react';
 import { IUser } from '../../components/cautrucdata';
+import { API_URL } from '../../config/config';
 import "../../style/img111.css";
 type Props = {
     user: IUser;
@@ -30,7 +31,7 @@ const AvatarUpload: React.FC<Props> = ({ user, onAvatarChange }) => {
         formData.append('avatar', selectedFile);
 
         try {
-            const res = await fetch(`http://localhost:3000/api/change-avatar/${user.user_id}`, {
+            const res = await fetch(`${API_URL}/change-avatar/${user.user_id}`, {
                 method: 'POST',
                 body: formData,
             });
@@ -41,7 +42,7 @@ const AvatarUpload: React.FC<Props> = ({ user, onAvatarChange }) => {
             alert("Cập nhật avatar thành công!");
 
             // ✅ cập nhật preview để thấy ảnh mới
-            setPreview(`http://localhost:3000/avatar/${data.avatar}?t=${Date.now()}`); // thêm ?t= để tránh cache
+            setPreview(`${API_URL}/avatar/${data.avatar}?t=${Date.now()}`); // thêm ?t= để tránh cache
 
             // ✅ gọi callback nếu có
             if (onAvatarChange) onAvatarChange(data.avatar);
@@ -58,7 +59,7 @@ const AvatarUpload: React.FC<Props> = ({ user, onAvatarChange }) => {
         <div>
             <div className="avatar-upload">
                 <img
-                    src={preview || `http://localhost:3000/avatar/${user.avatar}?t=${Date.now()}`}
+                    src={preview || `${API_URL}/avatar/${user.avatar}?t=${Date.now()}`}
                     alt="avatar"
                     onError={(e) => {
                         const target = e.target as HTMLImageElement;
