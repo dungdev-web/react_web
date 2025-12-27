@@ -1,9 +1,9 @@
 const express = require("express");
-const app = express();
+const router = express();
 const VouchersModel = require("../model/voucher.model");
 const { Op } = require("sequelize");
 const sequelize = require("../database");
-app.post("/api/voucher/apply", async (req, res) => {
+router.post("/api/voucher/routerly", async (req, res) => {
   const { code, order_total } = req.body;
   const voucher = await VouchersModel.findOne({ where: { code } });
 
@@ -48,7 +48,7 @@ app.post("/api/voucher/apply", async (req, res) => {
     message: "Áp dụng mã giảm giá thành công",
   });
 });
-app.get("/api/voucher/list", async (req, res) => {
+router.get("/api/voucher/list", async (req, res) => {
   try {
     const now = new Date();
     const vouchers = await VouchersModel.findAll({
@@ -83,3 +83,4 @@ app.get("/api/voucher/list", async (req, res) => {
       .json({ success: false, message: "Lỗi khi lấy danh sách voucher" });
   }
 });
+module.exports = router;

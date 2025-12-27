@@ -1,4 +1,5 @@
 "use client"
+import { API_URL } from "../config/config";
 import "../style/lien_he.css";
 
 import { useState, useEffect, ChangeEvent,FormEvent } from "react"
@@ -22,7 +23,7 @@ export default function Lienhe() {
         setStatus({ success: false, error: "" });
 
         try {
-            const response = await fetch("http://localhost:3000/api/send-email", {
+            const response = await fetch(`${API_URL}/send-email`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

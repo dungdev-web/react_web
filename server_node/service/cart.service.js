@@ -301,3 +301,4 @@ router.get("/api/donhang/user/:user_id", async (req, res) => {
     res.status(500).json({ thong_bao: "Lỗi lấy đơn hàng", err });
   }
 });
+module.exports = router;

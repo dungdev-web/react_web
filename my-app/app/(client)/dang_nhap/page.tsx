@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { auth, googleProvider, db } from "../../../firebaseConfig";
 import { signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import { API_URL } from "../config/config";
 export default function DangNhap() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -21,7 +22,7 @@ export default function DangNhap() {
         e.preventDefault();
 
         try {
-            const res = await fetch("http://localhost:3000/api/login", {
+            const res = await fetch(`${API_URL}/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -49,7 +50,7 @@ export default function DangNhap() {
     const handleSendOtp = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:3000/api/send-otp", {
+            const res = await fetch(`${API_URL}/send-otp`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -73,7 +74,7 @@ export default function DangNhap() {
     const handleResetPassword = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:3000/api/reset-password", {
+            const res = await fetch(`${API_URL}/reset-password`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

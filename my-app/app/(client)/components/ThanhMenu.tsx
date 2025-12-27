@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ILoai } from "./cautrucdata";
+import { API_URL } from "../config/config";
 
 export default function ThanhMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function ThanhMenu() {
   useEffect(() => {
     const fetchLoaiSanPham = async () => {
       try {
-        const resLoai = await fetch("http://localhost:3000/api/loai");
+        const resLoai = await fetch(`${API_URL}/loai`);
         const data = await resLoai.json();
         setDataLoai(data);
       } catch (error) {

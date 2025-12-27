@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import truncate from 'html-truncate';
 import { useState, useEffect, JSX } from "react";
 import { IBlog } from "../../components/cautrucdata";
+import { API_URL } from "../../config/config";
 export default function BlogDetail() {
     const params = useParams();
     const id = params.id as string;
@@ -17,10 +18,10 @@ export default function BlogDetail() {
     };
     useEffect(() => {
         if (id) {
-            fetch(`http://localhost:3000/api/blog/${id}`)
+            fetch(`${API_URL}/blog/${id}`)
                 .then(response => response.json())
                 .then(data => setBlog(data.blog))
-            fetch(`http://localhost:3000/api/blog/${id}/view`)
+            fetch(`${API_URL}/blog/${id}/view`)
                 .then(res => res.json())
                 .then(data => console.log(data.message))
                 .catch(err => console.error("Lỗi gọi API tăng view:", err));

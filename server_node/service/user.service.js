@@ -25,7 +25,7 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS, 
   },
 });
-router.use("/avatar", express.static("public/avatar"));
+router.use("/api/avatar", express.static("public/avatar"));
 
 
 const storage1 = multer.diskStorage({
@@ -40,9 +40,8 @@ const storage1 = multer.diskStorage({
 });
 
 const upload1 = multer({ storage: storage1 });
-router.use("/avatar", express.static("public/avatar"));
 
-app.post(
+router.post(
   "/api/change-avatar/:userId",
   upload1.single("avatar"),
   async (req, res) => {
@@ -82,7 +81,7 @@ app.post(
     }
   }
 );
-app.put("/api/user/:userId", async (req, res) => {
+router.put("/api/user/:userId", async (req, res) => {
   try {
     const user_id = Number(req.params.userId);
     const { name, email, phone } = req.body;
@@ -117,7 +116,7 @@ app.put("/api/user/:userId", async (req, res) => {
     res.status(500).json({ message: "Lỗi server", error });
   }
 });
-app.get("/api/nguoidung/", async (req, res) => {
+router.get("/api/nguoidung/", async (req, res) => {
   // Lấy tham số page và limit từ query params
   let page = parseInt(req.query.page) || 1; // Nếu không có page, mặc định là trang 1
   let limit = parseInt(req.query.limit) || 10; // Nếu không có limit, mặc định là 10
@@ -162,7 +161,7 @@ app.get("/api/nguoidung/", async (req, res) => {
     res.status(500).json({ error: "Lỗi truy vấn cơ sở dữ liệu." });
   }
 });
-app.put("/api/user/update-status/:id", async (req, res) => {
+router.put("/api/user/update-status/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { status } = req.body; // Lấy giá trị trạng thái mới từ body
@@ -186,7 +185,7 @@ app.put("/api/user/update-status/:id", async (req, res) => {
     res.status(500).json({ message: "Lỗi server", error: error.message });
   }
 });
-app.put("/api/user/update-role/:id", async (req, res) => {
+router.put("/api/user/update-role/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { role } = req.body;
@@ -217,7 +216,7 @@ app.put("/api/user/update-role/:id", async (req, res) => {
   }
 });
 //authentication
-app.post("/api/login", async (req, res) => {
+router.post("/api/login", async (req, res) => {
   try {
     console.log("Dữ liệu nhận được:", req.body);
 
@@ -296,7 +295,7 @@ app.post("/api/login", async (req, res) => {
     res.status(500).json({ message: "Lỗi server!", error: error.message });
   }
 });
-app.get("/api/check-auth", (req, res) => {
+router.get("/api/check-auth", (req, res) => {
   const token = req.cookies.token || req.headers.authorization?.split(" ")[1]; // Lấy từ cookie hoặc header
 
   console.log("Cookie nhận được:", req.cookies);
@@ -313,7 +312,7 @@ app.get("/api/check-auth", (req, res) => {
     res.status(403).json({ message: "Token không hợp lệ!" });
   }
 });
-app.post("/api/signup", async (req, res) => {
+router.post("/api/signup", async (req, res) => {
   try {
     const { email, password, name, phone, role = "customer" } = req.body;
 
@@ -356,7 +355,7 @@ app.post("/api/signup", async (req, res) => {
     res.status(500).json({ error: "Lỗi server!", log: error.message });
   }
 });
-app.post("/api/verify-otp", async (req, res) => {
+router.post("/api/verify-otp", async (req, res) => {
   try {
     const { email, otp } = req.body;
 
@@ -400,7 +399,7 @@ app.post("/api/verify-otp", async (req, res) => {
     res.status(500).json({ error: "Lỗi server!" });
   }
 });
-app.post("/api/send-otp", async (req, res) => {
+router.post("/api/send-otp", async (req, res) => {
   const { email } = req.body;
   const user = await UserModel.findOne({ where: { email: email } }); // ✅
 
@@ -423,7 +422,7 @@ app.post("/api/send-otp", async (req, res) => {
 
   res.json({ message: "OTP đã được gửi!", otpToken });
 });
-app.post("/api/reset-password", async (req, res) => {
+router.post("/api/reset-password", async (req, res) => {
   const { otp, newPassword, otpToken } = req.body;
 
   try {
@@ -445,7 +444,7 @@ app.post("/api/reset-password", async (req, res) => {
     res.status(400).json({ message: "OTP đã hết hạn!", log: error.message });
   }
 });
-app.post("/api/change-password", async (req, res) => {
+router.post("/api/change-password", async (req, res) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ message: "Không có token!" });
 
@@ -486,7 +485,7 @@ app.post("/api/change-password", async (req, res) => {
     res.status(401).json({ message: "Token không hợp lệ hoặc hết hạn!" });
   }
 });
-app.post("/api/send-email", async (req, res) => {
+router.post("/api/send-email", async (req, res) => {
   const { name, email, phone, message } = req.body;
 
   let transporter = nodemailer.createTransport({
@@ -523,7 +522,7 @@ app.post("/api/send-email", async (req, res) => {
   }
 });
 
-app.get("/api/admin/customers", async (req, res) => {
+router.get("/api/admin/customers", async (req, res) => {
   try {
     const year = req.query.year ? parseInt(req.query.year) : moment().year();
     let monthlyData = {};

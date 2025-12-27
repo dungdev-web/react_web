@@ -3,6 +3,7 @@ const ProductModel = require('../model/product.model');
 const FoodDetailModel = require('../model/fooddetail.model');
 const ThumbnailModel = require('../model/thumbnail.model');
 const CartItemModel = require("../model/cartitem.model");
+const categoryModel = require('../model/category.model');
 const router = express();
 const multer = require("multer");
 const path = require("path");

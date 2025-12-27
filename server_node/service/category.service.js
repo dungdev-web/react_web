@@ -2,11 +2,11 @@ const express = require('express');
 const router = express();
 const categoryModel = require('../model/category.model');
 const ProductModel = require('../model/product.model');
-app.get("/api/loai", async (req, res) => {
+router.get("/api/loai", async (req, res) => {
     const loai_arr = await categoryModel.findAll();
     res.json(loai_arr);
 })
-app.post("/api/admin/themloai", async (req, res) => {
+router.post("/api/admin/themloai", async (req, res) => {
     const { name, parent_id } = req.body;
 
     // Kiểm tra nếu không có parent_id thì gán giá trị null cho nó
@@ -18,7 +18,7 @@ app.post("/api/admin/themloai", async (req, res) => {
     res.json(newCategory); // Trả về thông tin loại mới đã tạo
 });
 //xóa loại
-app.delete("/api/admin/xoaloai/:id", async (req, res) => {
+router.delete("/api/admin/xoaloai/:id", async (req, res) => {
     const id = req.params.id;
     const loai = await categoryModel.findByPk(id);
     if (loai) {
@@ -29,7 +29,7 @@ app.delete("/api/admin/xoaloai/:id", async (req, res) => {
     }
 })
 //xóa nhiều loại
-app.delete("/api/admin/xoanhieuloai", async (req, res) => {
+router.delete("/api/admin/xoanhieuloai", async (req, res) => {
     const ids = req.body.ids;
 
     if (!ids || ids.length === 0) {
@@ -51,7 +51,7 @@ app.delete("/api/admin/xoanhieuloai", async (req, res) => {
     }
 });
 //sửa loại
-app.put("/api/admin/sualoai/:id", async (req, res) => {
+router.put("/api/admin/sualoai/:id", async (req, res) => {
     const id = req.params.id;
     const { name, parent_id } = req.body;
     const loai = await categoryModel.findByPk(id);
@@ -64,7 +64,7 @@ app.put("/api/admin/sualoai/:id", async (req, res) => {
         res.json({ message: "Loại không tồn tại" });
     }
 });
-app.get("/api/loai/:id", async (req, res) => {
+router.get("/api/loai/:id", async (req, res) => {
     const loai = await categoryModel.findByPk(req.params.id)
     res.json(loai);
 })

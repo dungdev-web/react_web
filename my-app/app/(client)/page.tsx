@@ -8,24 +8,25 @@ import VoucherDisplay from "./components/voucher";
 import { VoucherDisplayProps } from "./components/cautrucdata";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { API_URL } from "./config/config";
 export default  function Home() {
   const [sp_hot, setSpHot] = useState<ISanPham[]>([]);
   const [sp_moi, setSpMoi] = useState<ISanPham[]>([]);
   const [vouchers, setVouchers] = useState<VoucherDisplayProps[]>([]);
-
+  
   useEffect(() => {
     // Fetch sản phẩm hot
-    fetch("http://localhost:3000/api/sphot/8")
+    fetch(`${API_URL}/sphot/8`)
       .then(res => res.json())
       .then(data => setSpHot(data));
 
     // Fetch sản phẩm mới
-    fetch("http://localhost:3000/api/spmoi/8")
+    fetch(`${API_URL}/spmoi/8`)
       .then(res => res.json())
       .then(data => setSpMoi(data));
 
     // Fetch vouchers
-    fetch('http://localhost:3000/api/voucher/list')
+    fetch(`${API_URL}/voucher/list`)
       .then(res => res.json())
       .then(data => {
         if (data.success) setVouchers(data.vouchers);
