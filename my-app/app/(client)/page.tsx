@@ -49,7 +49,7 @@ export default  function Home() {
           src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/slider_1.jpg?1676001091788" data-ll-status="loading" />
       </section>
       <Banner />
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto max-w-6xl">
         {/* Sản phẩm nổi bật */}
         <div className="container1">
           <h2 className="non my-3 text-xl font-bold uppercase text-gray-700 p-[30px] text-center relative" style={{ clear: "both" }}>
