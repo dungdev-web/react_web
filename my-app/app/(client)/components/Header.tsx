@@ -1,5 +1,6 @@
 "use client";
 import "../style/style.css";
+import "../style/responsive.css";
 import ThanhMenu from "./ThanhMenu";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -76,9 +77,10 @@ export default function Header() {
   return (
     <header className="header">
       <div className="bg-[#c10a28] text-white text-center h-[40px] leading-[40px]">
-        <div className="container1" style={{ width: "1170px" }}>
+        <div className="container1  mx-auto max-w-6xl" >
           <div>
             <div className="rows">
+              <div className="flex ">
               <div className="col-sm-5 col-md-6 text-left text-[16px]">
                 <ul className="list-inline float-left">
                   <li>
@@ -213,6 +215,7 @@ export default function Header() {
                     </div>
                   </li>
                 </ul>
+              </div>
               </div>
             </div>
           </div>

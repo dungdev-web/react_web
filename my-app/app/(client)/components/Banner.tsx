@@ -3,9 +3,9 @@ export default function Banner(){
     return (
         <section className="awe-section-2">
     <div className="section section-banner">
-      <div className="container1">
-        <div className="rows">
-          <div className="col-md-6 col-sm-6 col-xs-12 hidden-xs">
+      <div className="container1 mx-auto max-w-6xl">
+        <div className=" grid grid-cols-2 gap-4 rows max-w-6xl w-full">
+          <div className="col-md-6 col-sm-6 col-xs-12 hidden-xs !w-auto">
             <div className="box mg_mb mg_l_mb">
               <a href="#" title="dualeo-food">
                 <img className="lazyload loaded"
@@ -15,8 +15,8 @@ export default function Banner(){
               </a>
             </div>
           </div>
-          <div className="col-md-6 col-sm-6 col-xs-12">
-            <div className="rows">
+          <div className="col-md-6 col-sm-6 col-xs-12 !w-auto">
+            <div className="rows flex">
               <div className="col-md-6 col-xs-6">
                 <div className="box margin-bottom-15">
                   <a href="#" title="dualeo-food">

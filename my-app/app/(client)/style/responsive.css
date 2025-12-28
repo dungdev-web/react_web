@@ -1,0 +1,33 @@
+/* header */
+@media (max-width: 768px) {
+}
+@media (max-width: 990px) {
+  .col-md-6,
+  .list-inline,
+  .list-inline li {
+    float: none !important;
+    text-align: center !important;
+  }
+  .col-sm-7 {
+    display: none;
+  }
+
+  header .header-content .nav > .nav-item > a {
+    padding: 10px 8px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 820px) {
+  .nav-left,
+  .nav-right,
+  .main-collection {
+    display: none;
+  }
+  .li-cart2 {
+    display: block !important;
+    color: black;
+  }
+  .icon i{
+    color: black;
+  }
+}

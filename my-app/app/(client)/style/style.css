@@ -23,7 +23,7 @@ header {
     left: 50%;
     transform: translateX(-50%);
   }
-  .rows::before,
+  /* .rows::before, */
   .container1::before,
   .clearfix::before,
   .nav::before {
@@ -45,7 +45,7 @@ header {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    width: 1170px;
+    width: auto;
   }
 
   .rows {
@@ -54,7 +54,7 @@ header {
   }
 
   .col-md-6 {
-    width: 50%;
+    width: 100%;
     position: relative;
     min-height: 1px;
     padding-right: 15px;
@@ -71,11 +71,11 @@ header {
     float: left;
   }
 
-  .col-md-2 {
+  /* .col-md-2 {
     width: 16.66666667%;
     float: left;
 
-  }
+  } */
 
   .col-sm-7 {
     /* width: 58.33333333%; */
@@ -178,6 +178,9 @@ header {
 
   .header-content {
     padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
   header nav ul.nav {
