@@ -16,6 +16,7 @@
     padding: 10px 8px;
     font-size: 16px;
   }
+  
 }
 @media (max-width: 820px) {
   .nav-left,
@@ -29,5 +30,25 @@
   }
   .icon i{
     color: black;
+  }
+ 
+}
+@media (max-width:1150px) {
+  .container4{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .col-lg-6 {
+    width: 100% !important;
+    float:none;
+  }
+}
+@media (max-width:699px) {
+  .container4{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width:499px) {
+  .container4{
+    grid-template-columns: repeat(1, 1fr);
   }
 }

@@ -4,7 +4,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(//bizweb.dktcdn.net/100/310/257/themes/801944/assets/breadcrum_bg_real.png?1606471870633);
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center;
     color: #fff;
     padding: 65px 0;
@@ -84,6 +84,10 @@ h1, .title-head {
 .col-lg-6 {
     width: 50%;
     float:left;
+}
+#recover-password{
+    padding-left: 15px;
+    padding-right: 15px;
 }
 @media (min-width: 1200px) {
     .col-lg-6:nth-child(2n+1) {
@@ -238,4 +242,20 @@ a, .text-link {
     /* color: #363636;   */
     text-decoration: none;
     background: transparent;
+}
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 40px; /* chừa chỗ cho icon */
+}
+
+.password-wrapper i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
 }

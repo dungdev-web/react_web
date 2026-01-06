@@ -4,7 +4,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(//bizweb.dktcdn.net/100/310/257/themes/801944/assets/breadcrum_bg_real.png?1606471870633);
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center;
     color: #fff;
     padding: 65px 0;
@@ -198,7 +198,6 @@ aside.blog-aside.blog-category .aside-title h2:after, .blog-aside.aside-item .as
     padding: 10px 15px;
 }
 a, .text-link {
-    color: #363636;
     text-decoration: none;
     background: transparent;
 }

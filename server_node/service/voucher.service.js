@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express();
 const VouchersModel = require("../model/voucher.model");
-const { Op } = require("sequelize");
+const { Op, Sequelize } = require("sequelize");
 const sequelize = require("../database");
 router.post("/api/voucher/routerly", async (req, res) => {
   const { code, order_total } = req.body;
@@ -60,7 +60,7 @@ router.get("/api/voucher/list", async (req, res) => {
           ],
         },
         quantity: {
-          [Op.gt]: sequelize.col("used"), // còn lượt dùng
+          [Op.gt]: Sequelize.col("used"), // còn lượt dùng
         },
       },
       attributes: ["code", "discount_value", "discount_type", "description"],

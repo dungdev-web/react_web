@@ -90,7 +90,7 @@ export default function DangKy() {
                     </div>
                 </div>
             </section>
-            <div className="container1">
+            <div className="container1 mx-auto max-w-6xl">
                 <h1 className="title-head"><span>Đăng ký tài khoản</span></h1>
                 {message && <p className="text-red-500">{message}</p>}
 

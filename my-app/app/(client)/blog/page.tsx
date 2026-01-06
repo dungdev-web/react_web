@@ -21,7 +21,7 @@ export default function Blog() {
     return (
         <div>
             <section className="bread-crumb">
-                <div className="container1">
+                <div className="container1 mx-auto max-w-6xl">
                     <div className="rows">
                         <div className="col-xs-12">
 
@@ -44,8 +44,8 @@ export default function Blog() {
                 </div>
             </section>
             <div>
-            <div className="container1">
-                <div className="rows">
+            <div className="container1 mx-auto ">
+                <div className="row">
                     <aside className="left left-content col-md-3 col-md-pull-9">
 
                         <aside className="blog-aside aside-item sidebar-category blog-category">
