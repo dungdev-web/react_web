@@ -2,8 +2,33 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 var app = express(); //tạo ứng dụng nodejs
-const PORT = process.env.DB_PORT;
+const PORT = process.env.PORT || 3000;
+require("./model/product.model");
+require("./model/category.model");
+require("./model/thumbnail.model");
+require("./model/fooddetail.model");
+require("./model/user.model");
+require("./model/cart.model");
+require("./model/cartitem.model");
+require("./model/review.model");
+require("./model/address.model");
 require("./model/associations");
+
+const { sequelize } = require("./database");
+(async () => {
+  try {
+    await sequelize.authenticate();
+    console.log("DB connected");
+
+await sequelize.sync({ force: true, constraints: false });
+
+ 
+    console.log("DB synced");
+
+  } catch (err) {
+    console.error("DB error:", err);
+  }
+})();
 
 const ProductService = require("./service/product.service");
 const AddressService = require("./service/address.service");
@@ -22,13 +47,7 @@ app.use(
   })
 ); 
 app.use(cookieParser()); 
-app
-  .listen(PORT, () => {
-    console.log(`Ung dung dang chay o port ${PORT}`);
-  })
-  .on("error", function (err) {
-    console.log(`Loi xay ra khi chay ung dung ${err}`);
-  });
+
   app.use(AddressService);
   app.use(BlogService);
   app.use(ProductService);
@@ -39,3 +58,10 @@ app
   app.use(ReviewService);
   app.use(VoucherService);
 
+app
+  .listen(PORT, () => {
+    console.log(`Ung dung dang chay o port ${PORT}`);
+  })
+  .on("error", function (err) {
+    console.log(`Loi xay ra khi chay ung dung ${err}`);
+  });

@@ -7,7 +7,7 @@ const CartModel = sequelize.define('cart',
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: "user", key: "user_id" },
+      references: { model: "users", key: "user_id" },
       onUpdate: "CASCADE",
       onDelete: "RESTRICT"
     },
