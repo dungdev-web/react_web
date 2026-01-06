@@ -1,10 +1,10 @@
 const ProductModel = require("./product.model");
 const CategoryModel = require("./category.model");
 const ThumbnailModel = require("./thumbnail.model");
-const FoodDetailModel = require("./foodDetail.model");
+const FoodDetailModel = require("./fooddetail.model");
 const UserModel = require("./user.model");
 const CartModel = require("./cart.model");
-const CartItemModel = require("./cartItem.model");
+const CartItemModel = require("./cartitem.model");
 const ReviewModel = require("./review.model");
 const AddressModel = require("./address.model");
 ProductModel.belongsTo(CategoryModel, { foreignKey: 'category_id' });
