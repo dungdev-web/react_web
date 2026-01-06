@@ -14,7 +14,7 @@ export default function Blog() {
         return <>{parse(truncated)}</>; // Không bọc trong <p> nếu đã có thẻ block bên trong
       };
     useEffect(() => {
-        fetch(`${API_URL}/blog`)
+        fetch(`${API_URL}/api/blog`)
         .then(response => response.json())
         .then(data => setBlog(data.blogs))
         }, []);

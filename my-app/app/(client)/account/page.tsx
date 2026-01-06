@@ -53,7 +53,7 @@ export default function CheckAuth() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleSubmit = async () => {
-    const res = await fetch(`${API_URL}/user/${user?.user_id}`, {
+    const res = await fetch(`${API_URL}/api/user/${user?.user_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -99,7 +99,7 @@ export default function CheckAuth() {
     voucherCode: string
   ): Promise<number> => {
     try {
-      const response = await fetch(`${API_URL}/voucher/apply`, {
+      const response = await fetch(`${API_URL}/api/voucher/apply`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code: voucherCode, order_total: orderTotal }), // Correctly pass voucherCode
@@ -130,7 +130,7 @@ export default function CheckAuth() {
     }
 
     try {
-      const res = await fetch(`${API_URL}/change-password`, {
+      const res = await fetch(`${API_URL}/api/change-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -161,7 +161,7 @@ export default function CheckAuth() {
   };
   const fetchOrders = async (userId: number) => {
     try {
-      const res = await fetch(`${API_URL}/donhang/user/${userId}`);
+      const res = await fetch(`${API_URL}/api/donhang/user/${userId}`);
       const data = await res.json();
       if (res.ok) {
         setDonhang(data.donhang);
@@ -178,7 +178,7 @@ export default function CheckAuth() {
     if (!confirmHuy) return;
 
     try {
-      const res = await fetch(`${API_URL}/huy-don-hang`, {
+      const res = await fetch(`${API_URL}/api/huy-don-hang`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cart_id }),
@@ -229,7 +229,7 @@ export default function CheckAuth() {
       }
 
       try {
-        const res = await fetch(`${API_URL}/check-auth`, {
+        const res = await fetch(`${API_URL}/api/check-auth`, {
           method: "GET",
           credentials: "include", // Gửi cookie nếu có
           headers: {
@@ -260,7 +260,7 @@ export default function CheckAuth() {
 
     const fetchAddresses = async (userId: number) => {
       try {
-        const res = await fetch(`${API_URL}/diachi/${userId}`);
+        const res = await fetch(`${API_URL}/api/diachi/${userId}`);
         const data = await res.json();
         setAddresses(data.dia_chi); // Gán dữ liệu vào state
       } catch (err) {

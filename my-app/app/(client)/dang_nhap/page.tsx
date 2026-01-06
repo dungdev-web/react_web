@@ -22,7 +22,7 @@ export default function DangNhap() {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${API_URL}/login`, {
+      const res = await fetch(`${API_URL}/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export default function DangNhap() {
   const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${API_URL}/send-otp`, {
+      const res = await fetch(`${API_URL}/api/send-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export default function DangNhap() {
   const handleResetPassword = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${API_URL}/reset-password`, {
+      const res = await fetch(`${API_URL}/api/reset-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

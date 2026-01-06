@@ -19,7 +19,7 @@ export default function SearchPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`${API_URL}/timkiem/${tu_khoa}/${page}`);
+                const res = await fetch(`${API_URL}/api/timkiem/${tu_khoa}/${page}`);
                 const data = await res.json();
 
                 console.log("Dữ liệu API nhận được:", data);

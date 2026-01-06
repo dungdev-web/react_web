@@ -15,7 +15,7 @@ export default function SanPham() {
   const fetchSanPham = async (pageNum: number, sortBy: string) => {
     try {
       const res = await fetch(
-        `${API_URL}/phantrang?page=${pageNum}&limit=${pageSize}&sortby=${sortBy}`
+        `${API_URL}/api/phantrang?page=${pageNum}&limit=${pageSize}&sortby=${sortBy}`
       );
       const data = await res.json();
   

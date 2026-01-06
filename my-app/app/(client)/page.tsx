@@ -16,17 +16,17 @@ export default  function Home() {
   
   useEffect(() => {
     // Fetch sản phẩm hot
-    fetch(`${API_URL}/sphot/8`)
+    fetch(`${API_URL}/api/sphot/8`)
       .then(res => res.json())
       .then(data => setSpHot(data));
 
     // Fetch sản phẩm mới
-    fetch(`${API_URL}/spmoi/8`)
+    fetch(`${API_URL}/api/spmoi/8`)
       .then(res => res.json())
       .then(data => setSpMoi(data));
 
     // Fetch vouchers
-    fetch(`${API_URL}/voucher/list`)
+    fetch(`${API_URL}/api/voucher/list`)
       .then(res => res.json())
       .then(data => {
         if (data.success) setVouchers(data.vouchers);

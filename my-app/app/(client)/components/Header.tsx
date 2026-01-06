@@ -44,7 +44,7 @@ export default function Header() {
       }
 
       try {
-        const res = await fetch(`${API_URL}/check-auth`, {
+        const res = await fetch(`${API_URL}/api/check-auth`, {
           method: "GET",
           credentials: "include", // Gửi cookie nếu có
           headers: {

@@ -22,7 +22,7 @@ export default function DangKy() {
         }
 
         try {
-            const res = await fetch(`${API_URL}/signup`, {
+            const res = await fetch(`${API_URL}/api/signup`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password, name,phone }),
@@ -46,7 +46,7 @@ export default function DangKy() {
         e.preventDefault();
 
         try {
-            const res = await fetch(`${API_URL}/verify-otp`, {
+            const res = await fetch(`${API_URL}/api/verify-otp`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, otp }),

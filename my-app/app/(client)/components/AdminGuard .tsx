@@ -37,7 +37,7 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
         setIsAuthorized(true); // ✅ Cho phép hiển thị ngay
 
         // ✅ Gọi API để xác minh lại phía server
-        const res = await fetch(`${API_URL}/check-auth`, {
+        const res = await fetch(`${API_URL}/api/check-auth`, {
           method: "GET",
           credentials: "include",
           headers: {

@@ -45,7 +45,7 @@ export default function ChitietSanPham() {
       if (!token) return;
 
       try {
-        const res = await fetch(`${API_URL}/check-auth`, {
+        const res = await fetch(`${API_URL}/api/check-auth`, {
           method: "GET",
           credentials: "include",
           headers: { "Authorization": `Bearer ${token}` },
@@ -71,11 +71,11 @@ export default function ChitietSanPham() {
   useEffect(() => {
     if (!id) return;
 
-    fetch(`${API_URL}/sp/${id}`)
+    fetch(`${API_URL}/api/sp/${id}`)
       .then((res) => res.json())
       .then((data) => setSp(data));
 
-    fetch(`${API_URL}/sp-tuong-tu/${id}`)
+    fetch(`${API_URL}/api/sp-tuong-tu/${id}`)
       .then((res) => res.json())
       .then((data) => setSPlienquan(data))
       .catch((err) => console.error("Lỗi khi lấy sản phẩm liên quan:", err));
@@ -92,7 +92,7 @@ export default function ChitietSanPham() {
     }
   
     try {
-      const res = await fetch(`${API_URL}/binhluan/${id}`);
+      const res = await fetch(`${API_URL}/api/binhluan/${id}`);
   
       if (!res.ok) {
         if (res.status === 404) {
@@ -138,7 +138,7 @@ export default function ChitietSanPham() {
     }
 
     try {
-      const res = await fetch(`${API_URL}/thembinhluan/${id}`, {
+      const res = await fetch(`${API_URL}/api/thembinhluan/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

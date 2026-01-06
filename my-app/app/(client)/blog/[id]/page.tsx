@@ -18,10 +18,10 @@ export default function BlogDetail() {
     };
     useEffect(() => {
         if (id) {
-            fetch(`${API_URL}/blog/${id}`)
+            fetch(`${API_URL}/api/blog/${id}`)
                 .then(response => response.json())
                 .then(data => setBlog(data.blog))
-            fetch(`${API_URL}/blog/${id}/view`)
+            fetch(`${API_URL}/api/blog/${id}/view`)
                 .then(res => res.json())
                 .then(data => console.log(data.message))
                 .catch(err => console.error("Lỗi gọi API tăng view:", err));

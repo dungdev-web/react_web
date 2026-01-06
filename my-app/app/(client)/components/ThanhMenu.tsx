@@ -18,7 +18,7 @@ export default function ThanhMenu() {
   useEffect(() => {
     const fetchLoaiSanPham = async () => {
       try {
-        const resLoai = await fetch(`${API_URL}/loai`);
+        const resLoai = await fetch(`${API_URL}/api/loai`);
         const data = await resLoai.json();
         setDataLoai(data);
       } catch (error) {
