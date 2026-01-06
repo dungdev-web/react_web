@@ -2,7 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 var app = express(); //tạo ứng dụng nodejs
-const port = 3000;
+const PORT = process.env.DB_PORT;
 require("./model/associations");
 
 const ProductService = require("./service/product.service");
@@ -18,14 +18,13 @@ app.use(express.json());
 const cors = require("cors");
 app.use(
   cors({
-    origin: "http://localhost:3001", // React chạy trên cổng này
     credentials: true, // Cho phép gửi cookie
   })
 ); 
 app.use(cookieParser()); 
 app
-  .listen(port, () => {
-    console.log(`Ung dung dang chay o port ${port}`);
+  .listen(PORT, () => {
+    console.log(`Ung dung dang chay o port ${PORT}`);
   })
   .on("error", function (err) {
     console.log(`Loi xay ra khi chay ung dung ${err}`);
