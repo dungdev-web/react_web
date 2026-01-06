@@ -4,7 +4,7 @@ export default function Footer() {
 
         <footer className="footer">
             <div >
-                <div className="container4">
+                <div className="container4 mx-auto max-w-6xl grid grid-cols-4 gap-4 py-8 ">
                     <div className="footer-column">
                         <h3>VỀ CHÚNG TÔI</h3>
                         <p>Chúng tôi chuyên cung cấp các sản phẩm thực phẩm sạch, an toàn cho sức khỏe người tiêu dùng.</p>
