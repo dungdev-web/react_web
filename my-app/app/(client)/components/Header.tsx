@@ -244,8 +244,7 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
                   alt="Pizza"
-                  height={300}
-                  width={400}
+              
                 />
                 Pizza
               </Link>
@@ -254,8 +253,7 @@ export default function Header() {
             <li className="nav-item ">
               <Link className="nav-link" href="/sptrongloai/2">
                 <Image
-                  height={300}
-                  width={400}
+                 
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_2.png?1676001091788"
                   alt="Burger"
@@ -270,8 +268,7 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_3.png?1676001091788"
                   alt="Đồ uống"
-                  height={300}
-                  width={400}
+               
                 />
                 Đồ uống
               </Link>
@@ -283,8 +280,7 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_4.png?1676001091788"
                   alt="Trà Sữa"
-                  height={300}
-                  width={400}
+                  
                 />
                 Trà Sữa
               </Link>
@@ -296,8 +292,7 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_5.png?1676001091788"
                   alt="Khoai chiên"
-                  height={300}
-                  width={400}
+                 
                 />
                 Khoai chiên
               </Link>
@@ -308,8 +303,7 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
                   alt="Hoa quả"
-                  height={300}
-                  width={400}
+            
                 />
                 Hoa quả
               </Link>
@@ -474,8 +468,7 @@ export default function Header() {
                     className="icon_menu"
                     src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
                     alt="Pizza"
-                    height={300}
-                    width={400}
+                  
                   />
                   Pizza
                 </Link>
@@ -531,8 +524,7 @@ export default function Header() {
                     className="icon_menu"
                     src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
                     alt="Hoa quả"
-                    height={300}
-                    width={400}
+                   
                   />
                   Hoa quả
                 </Link>
