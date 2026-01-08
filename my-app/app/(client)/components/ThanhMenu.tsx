@@ -216,8 +216,9 @@ export default function ThanhMenu() {
           max-width: 120px;
           height: auto;
         }
-          .li-cart2{
-          display:none;}
+        .li-cart2 {
+          display: none;
+        }
         @media (max-width: 820px) {
           .mobile-menu-btn {
             display: block;
@@ -246,6 +247,8 @@ export default function ThanhMenu() {
             <Image
               src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/logo.png?1676001091788"
               alt="logo"
+              width={400}
+              height={300}
             />
           </Link>
         </div>
@@ -377,6 +380,8 @@ export default function ThanhMenu() {
               <Image
                 src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/logo.png?1676001091788"
                 alt="logo"
+                width={400}
+                height={300}
               />
             </Link>
           </div>

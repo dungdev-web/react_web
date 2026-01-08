@@ -78,151 +78,153 @@ export default function Header() {
   if (loading) {
     return null; // Hoặc hiển thị một spinner/loading indicator
   }
-  if(message){
+  if (message) {
     console.log(message);
   }
   return (
     <header className="header">
       <div className="bg-[#c10a28] text-white text-center h-[40px] leading-[40px]">
-        <div className="container1  mx-auto max-w-6xl" >
+        <div className="container1  mx-auto max-w-6xl">
           <div>
             <div className="rows">
               <div className="flex ">
-              <div className="col-sm-5 col-md-6 text-left text-[16px]">
-                <ul className="list-inline float-left">
-                  <li>
-                    <i
-                      className="fa fa-phone-square"
-                      style={{
-                        fontSize: "20px",
-                        display: "inline-block",
-                        position: "relative",
-                        transform: "translateY(2px)",
-                      }}
-                    ></i>
+                <div className="col-sm-5 col-md-6 text-left text-[16px]">
+                  <ul className="list-inline float-left">
+                    <li>
+                      <i
+                        className="fa fa-phone-square"
+                        style={{
+                          fontSize: "20px",
+                          display: "inline-block",
+                          position: "relative",
+                          transform: "translateY(2px)",
+                        }}
+                      ></i>
 
-                    <span>
-                      <Link href="callto:19006750"> 1900 6750</Link>
-                    </span>
-                  </li>
-                  <li className="margin-left-20">
-                    <i className="fa fa-clock-o"></i>
-                    <span>Thứ 2 - Chủ nhật: 9:00 - 18:00</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="col-sm-7 col-md-6 text-[16px]">
-                <ul className="list-inline float-right">
-                  {user ? (
-                    <>
-                      <li className="li-use">
-                        <Link href="/account">
-                          <span className="text-[#fff]">Chào, {user.name}</span>
-                        </Link>
-                      </li>
-                      <li className="li-use">
-                        <button
-                          className="cursor-pointer"
-                          onClick={handleLogout}
-                        >
-                          <span className="text-[#fff]">Đăng xuất</span>
-                        </button>
-                      </li>
-
-                      {/* Kiểm tra role là admin */}
-                      {user.role === "admin" && (
+                      <span>
+                        <Link href="callto:19006750"> 1900 6750</Link>
+                      </span>
+                    </li>
+                    <li className="margin-left-20">
+                      <i className="fa fa-clock-o"></i>
+                      <span>Thứ 2 - Chủ nhật: 9:00 - 18:00</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-sm-7 col-md-6 text-[16px]">
+                  <ul className="list-inline float-right">
+                    {user ? (
+                      <>
                         <li className="li-use">
-                          <Link href="/admin">
-                            <span className="text-[#fff]">Quản lý</span>
+                          <Link href="/account">
+                            <span className="text-[#fff]">
+                              Chào, {user.name}
+                            </span>
                           </Link>
                         </li>
-                      )}
-                    </>
-                  ) : (
-                    <>
-                      <li className="li-use">
-                        <Link className="text-white" href="/dang_ky">
-                          Đăng ký
-                        </Link>
-                      </li>
-                      <li className="li-use">
-                        <Link className="text-white" href="/dang_nhap">
-                          Đăng nhập
-                        </Link>
-                      </li>
-                    </>
-                  )}
-
-                  <li className="li-search">
-                    <Link href="#">
-                      <i className="fa fa-search text-[#fff]"></i>
-                    </Link>
-                    <div className="dropdown topbar-dropdown  hidden-sm hidden-xs">
-                      <div className="content a-center">
-                        <div className="header_search search_form">
-                          <form
-                            className="input-group search-bar search_form"
-                            onSubmit={handleSearch}
-                            role="search"
+                        <li className="li-use">
+                          <button
+                            className="cursor-pointer"
+                            onClick={handleLogout}
                           >
-                            <input
-                              type="search"
-                              name="query"
-                              placeholder="Tìm sản phẩm"
-                              className="input-group-field st-default-search-input search-text"
-                              autoComplete="off"
-                              value={tuKhoa}
-                              onChange={(e) => setTuKhoa(e.target.value)}
-                            />
+                            <span className="text-[#fff]">Đăng xuất</span>
+                          </button>
+                        </li>
 
-                            <span className="input-group-btn ">
-                              <button
-                                className="btn icon-fallback-text"
-                                type="submit"
-                              >
-                                <i className="fa fa-search"></i>
-                              </button>
-                            </span>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li className="li-cart">
-                    <div className="top-cart-contain">
-                      <div className="mini-cart text-xs-center">
-                        <div className="heading-cart text-white">
-                          <Link href="/gio_hang">
-                            <div className="icon text-white">
-                              <i className="fa fa-shopping-basket"></i>
-                            </div>
-
-                            <div className="right-content">
-                              <span className="cartCount2 text-[#fff]">
-                                ({totalQuantity})
-                              </span>
-                            </div>
+                        {/* Kiểm tra role là admin */}
+                        {user.role === "admin" && (
+                          <li className="li-use">
+                            <Link href="/admin">
+                              <span className="text-[#fff]">Quản lý</span>
+                            </Link>
+                          </li>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        <li className="li-use">
+                          <Link className="text-white" href="/dang_ky">
+                            Đăng ký
                           </Link>
-                        </div>
-                        <div className="top-cart-content">
-                          <ul
-                            id="cart-sidebar"
-                            className="mini-products-list count_li"
-                          >
-                            <div
-                              className="no-item"
-                              style={{ display: "none" }}
+                        </li>
+                        <li className="li-use">
+                          <Link className="text-white" href="/dang_nhap">
+                            Đăng nhập
+                          </Link>
+                        </li>
+                      </>
+                    )}
+
+                    <li className="li-search">
+                      <Link href="#">
+                        <i className="fa fa-search text-[#fff]"></i>
+                      </Link>
+                      <div className="dropdown topbar-dropdown  hidden-sm hidden-xs">
+                        <div className="content a-center">
+                          <div className="header_search search_form">
+                            <form
+                              className="input-group search-bar search_form"
+                              onSubmit={handleSearch}
+                              role="search"
                             >
-                              <p>Không có sản phẩm nào trong giỏ hàng.</p>
-                            </div>
-                          </ul>
+                              <input
+                                type="search"
+                                name="query"
+                                placeholder="Tìm sản phẩm"
+                                className="input-group-field st-default-search-input search-text"
+                                autoComplete="off"
+                                value={tuKhoa}
+                                onChange={(e) => setTuKhoa(e.target.value)}
+                              />
+
+                              <span className="input-group-btn ">
+                                <button
+                                  className="btn icon-fallback-text"
+                                  type="submit"
+                                >
+                                  <i className="fa fa-search"></i>
+                                </button>
+                              </span>
+                            </form>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    </li>
+
+                    <li className="li-cart">
+                      <div className="top-cart-contain">
+                        <div className="mini-cart text-xs-center">
+                          <div className="heading-cart text-white">
+                            <Link href="/gio_hang">
+                              <div className="icon text-white">
+                                <i className="fa fa-shopping-basket"></i>
+                              </div>
+
+                              <div className="right-content">
+                                <span className="cartCount2 text-[#fff]">
+                                  ({totalQuantity})
+                                </span>
+                              </div>
+                            </Link>
+                          </div>
+                          <div className="top-cart-content">
+                            <ul
+                              id="cart-sidebar"
+                              className="mini-products-list count_li"
+                            >
+                              <div
+                                className="no-item"
+                                style={{ display: "none" }}
+                              >
+                                <p>Không có sản phẩm nào trong giỏ hàng.</p>
+                              </div>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -242,6 +244,8 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
                   alt="Pizza"
+                  height={300}
+                  width={400}
                 />
                 Pizza
               </Link>
@@ -250,6 +254,8 @@ export default function Header() {
             <li className="nav-item ">
               <Link className="nav-link" href="/sptrongloai/2">
                 <Image
+                  height={300}
+                  width={400}
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_2.png?1676001091788"
                   alt="Burger"
@@ -264,6 +270,8 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_3.png?1676001091788"
                   alt="Đồ uống"
+                  height={300}
+                  width={400}
                 />
                 Đồ uống
               </Link>
@@ -275,6 +283,8 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_4.png?1676001091788"
                   alt="Trà Sữa"
+                  height={300}
+                  width={400}
                 />
                 Trà Sữa
               </Link>
@@ -286,6 +296,8 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_5.png?1676001091788"
                   alt="Khoai chiên"
+                  height={300}
+                  width={400}
                 />
                 Khoai chiên
               </Link>
@@ -296,6 +308,8 @@ export default function Header() {
                   className="icon_menu"
                   src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
                   alt="Hoa quả"
+                  height={300}
+                  width={400}
                 />
                 Hoa quả
               </Link>
@@ -460,6 +474,8 @@ export default function Header() {
                     className="icon_menu"
                     src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
                     alt="Pizza"
+                    height={300}
+                    width={400}
                   />
                   Pizza
                 </Link>
@@ -515,6 +531,8 @@ export default function Header() {
                     className="icon_menu"
                     src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
                     alt="Hoa quả"
+                    height={300}
+                    width={400}
                   />
                   Hoa quả
                 </Link>

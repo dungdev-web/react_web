@@ -43,7 +43,12 @@ app.use(express.json());
 const cors = require("cors");
 app.use(
   cors({
-    credentials: true, // Cho phép gửi cookie
+    credentials: true,
+         origin: [
+      "http://localhost:3000",
+      "https://react-web-seven-taupe.vercel.app",
+    ],
+ // Cho phép gửi cookie
   })
 ); 
 app.use(cookieParser()); 

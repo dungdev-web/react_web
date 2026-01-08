@@ -16,8 +16,9 @@ export default function Banner() {
                   <Image
                     className="lazyload loaded"
                     src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_1.jpg?1676001091788"
-                    alt="alt"
-                    data-ll-status="loaded"
+                    alt="banner"
+                    width={400}
+                    height={300}
                   />
                 </Link>
               </div>
@@ -32,6 +33,8 @@ export default function Banner() {
                         src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_2.jpg?1676001091788"
                         alt="alt"
                         data-ll-status="loaded"
+                        width={400}
+                        height={300}
                       />
                     </Link>
                   </div>
@@ -44,6 +47,8 @@ export default function Banner() {
                         src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_3.jpg?1676001091788"
                         alt="alt"
                         data-ll-status="loaded"
+                        width={400}
+                        height={300}
                       />
                     </Link>
                   </div>
@@ -56,6 +61,8 @@ export default function Banner() {
                     src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_4.jpg?1676001091788"
                     alt="alt"
                     data-ll-status="loaded"
+                    width={400}
+                    height={300}
                   />
                 </Link>
               </div>

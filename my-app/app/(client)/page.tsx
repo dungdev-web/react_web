@@ -45,8 +45,13 @@ export default  function Home() {
         />
       ))}
       <section className="awe-section1 mb-[30px]">
-        <Image className="lazyload loading" alt="alt slider demo"
-          src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/slider_1.jpg?1676001091788" data-ll-status="loading" />
+       <Image
+  src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_1.jpg?1676001091788"
+  alt="banner"
+  width={400}
+  height={300}
+/>
+
       </section>
       <Banner />
       <div className="container mx-auto max-w-6xl">
