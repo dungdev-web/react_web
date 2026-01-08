@@ -15,7 +15,7 @@ export default function Banner() {
                 <Link href="#" title="dualeo-food">
                   <Image
                     className="lazyload loaded"
-                    src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_1.jpg?1676001091788"
+                    src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_1.jpg?1676001091788"
                     alt="alt"
                     data-ll-status="loaded"
                   />
@@ -29,7 +29,7 @@ export default function Banner() {
                     <Link href="#" title="dualeo-food">
                       <Image
                         className="lazyload loaded"
-                        src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_2.jpg?1676001091788"
+                        src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_2.jpg?1676001091788"
                         alt="alt"
                         data-ll-status="loaded"
                       />
@@ -41,7 +41,7 @@ export default function Banner() {
                     <Link href="#" title="dualeo-food">
                       <Image
                         className="lazyload loaded"
-                        src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_3.jpg?1676001091788"
+                        src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_3.jpg?1676001091788"
                         alt="alt"
                         data-ll-status="loaded"
                       />
@@ -53,7 +53,7 @@ export default function Banner() {
                 <Link href="#" title="dualeo-food">
                   <Image
                     className="lazyload loaded"
-                    src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_4.jpg?1676001091788"
+                    src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_4.jpg?1676001091788"
                     alt="alt"
                     data-ll-status="loaded"
                   />

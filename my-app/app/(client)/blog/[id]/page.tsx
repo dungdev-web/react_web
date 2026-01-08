@@ -209,7 +209,7 @@ export default function BlogDetail() {
                                                 <div className="thumb-left">
                                                     <Link href="/tu-lam-kho-ga-la-chanh-ngon-tuyet-tai-nha">
 
-                                                        <Image src="//bizweb.dktcdn.net/thumb/small/100/310/257/articles/art1-5e2aebe2-43eb-41a1-98cd-b9cc381ae15d.png?v=1526564713617" style={{ width: "100%" }} alt="Tự làm khô gà lá chanh ngon tuyệt tại nhà" className="img-responsive" />
+                                                        <Image src="https://bizweb.dktcdn.net/thumb/small/100/310/257/articles/art1-5e2aebe2-43eb-41a1-98cd-b9cc381ae15d.png?v=1526564713617" style={{ width: "100%" }} alt="Tự làm khô gà lá chanh ngon tuyệt tại nhà" className="img-responsive" />
 
                                                     </Link>
 

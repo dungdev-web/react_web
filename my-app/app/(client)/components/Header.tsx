@@ -240,7 +240,7 @@ export default function Header() {
               <Link className="nav-link" href="/sptrongloai/1">
                 <Image
                   className="icon_menu"
-                  src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
+                  src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
                   alt="Pizza"
                 />
                 Pizza
@@ -251,7 +251,7 @@ export default function Header() {
               <Link className="nav-link" href="/sptrongloai/2">
                 <Image
                   className="icon_menu"
-                  src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_2.png?1676001091788"
+                  src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_2.png?1676001091788"
                   alt="Burger"
                 />
                 Burger
@@ -262,7 +262,7 @@ export default function Header() {
               <Link className="nav-link" href="/sptrongloai/3">
                 <Image
                   className="icon_menu"
-                  src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_3.png?1676001091788"
+                  src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_3.png?1676001091788"
                   alt="Đồ uống"
                 />
                 Đồ uống
@@ -273,7 +273,7 @@ export default function Header() {
               <Link className="nav-link" href="/sptrongloai/4">
                 <Image
                   className="icon_menu"
-                  src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_4.png?1676001091788"
+                  src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_4.png?1676001091788"
                   alt="Trà Sữa"
                 />
                 Trà Sữa
@@ -284,7 +284,7 @@ export default function Header() {
               <Link className="nav-link" href="/sptrongloai/5">
                 <Image
                   className="icon_menu"
-                  src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_5.png?1676001091788"
+                  src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_5.png?1676001091788"
                   alt="Khoai chiên"
                 />
                 Khoai chiên
@@ -294,7 +294,7 @@ export default function Header() {
               <Link className="nav-link" href="/sptrongloai/6">
                 <Image
                   className="icon_menu"
-                  src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
+                  src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
                   alt="Hoa quả"
                 />
                 Hoa quả
@@ -458,7 +458,7 @@ export default function Header() {
                 <Link className="nav-link" href="/san-pham-noi-bat">
                   <Image
                     className="icon_menu"
-                    src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
+                    src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
                     alt="Pizza"
                   />
                   Pizza
@@ -469,7 +469,7 @@ export default function Header() {
                 <Link className="nav-link" href="/san-pham-khuyen-mai">
                   <Image
                     className="icon_menu"
-                    src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_2.png?1676001091788"
+                    src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_2.png?1676001091788"
                     alt="Burger"
                   />
                   Burger
@@ -480,7 +480,7 @@ export default function Header() {
                 <Link className="nav-link" href="/san-pham-ban-chay">
                   <Image
                     className="icon_menu"
-                    src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_3.png?1676001091788"
+                    src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_3.png?1676001091788"
                     alt="Đồ uống"
                   />
                   Đồ uống
@@ -491,7 +491,7 @@ export default function Header() {
                 <Link className="nav-link" href="/dang-giam-gia">
                   <Image
                     className="icon_menu"
-                    src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_4.png?1676001091788"
+                    src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_4.png?1676001091788"
                     alt="Trà Sữa"
                   />
                   Trà Sữa
@@ -502,7 +502,7 @@ export default function Header() {
                 <Link className="nav-link" href="/com-tron">
                   <Image
                     className="icon_menu"
-                    src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_5.png?1676001091788"
+                    src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_5.png?1676001091788"
                     alt="Khoai chiên"
                   />
                   Khoai chiên
@@ -513,7 +513,7 @@ export default function Header() {
                 <Link className="nav-link" href="/ga-ran">
                   <Image
                     className="icon_menu"
-                    src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
+                    src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
                     alt="Hoa quả"
                   />
                   Hoa quả

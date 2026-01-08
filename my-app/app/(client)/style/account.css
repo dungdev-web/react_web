@@ -3,7 +3,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(//bizweb.dktcdn.net/100/310/257/themes/801944/assets/breadcrum_bg_real.png?1606471870633);
+    background-image: url(https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/breadcrum_bg_real.png?1606471870633);
     margin-bottom: 30px;
     text-align: center;
     color: #fff;
@@ -467,7 +467,7 @@ th {
     background-repeat: no-repeat !important;
     background-position: right 20px center !important;
     text-indent: .01px;
-    background-image: url(//bizweb.dktcdn.net/100/310/257/themes/801944/assets/ico-select.png?1606471870633) !important;
+    background-image: url(https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/ico-select.png?1606471870633) !important;
     z-index: 10;
     position: relative;
     background: transparent !important;

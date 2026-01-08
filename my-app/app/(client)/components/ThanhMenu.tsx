@@ -244,7 +244,7 @@ export default function ThanhMenu() {
         <div className="logo-wrapper-mobile">
           <Link href="/" onClick={toggleSidebar}>
             <Image
-              src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/logo.png?1676001091788"
+              src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/logo.png?1676001091788"
               alt="logo"
             />
           </Link>
@@ -375,7 +375,7 @@ export default function ThanhMenu() {
           <div className="logo inline-block">
             <Link href="/" className="logo-wrapper">
               <Image
-                src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/logo.png?1676001091788"
+                src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/logo.png?1676001091788"
                 alt="logo"
               />
             </Link>

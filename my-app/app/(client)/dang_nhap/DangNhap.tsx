@@ -181,7 +181,7 @@ export default function DangNhap() {
                       width={129}
                       height={37}
                       alt="facebook-login-button"
-                      src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"
+                      src="https://bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"
                     />
                   </Link>
                   <button onClick={handleGoogleSignIn}>
@@ -194,7 +194,7 @@ export default function DangNhap() {
                         width={129}
                         height={37}
                         alt="google-login-button"
-                        src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg"
+                        src="https://bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg"
                       />
                     </Link>
                   </button>

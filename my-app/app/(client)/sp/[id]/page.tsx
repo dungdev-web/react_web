@@ -237,24 +237,24 @@ export default function ChitietSanPham() {
               <div className="rows">
                 <div className="col-xs-12 col-sm-12 col-md-5">
                   <div className="large-image">
-                    <Link href="//bizweb.dktcdn.net/thumb/1024x1024/100/310/257/products/ga-1-d45b2dc2-a3af-4259-9843-e60b54cd63dd.png?v=1527215295217" data-rel="prettyPhoto[product-gallery]">
+                    <Link href="https://bizweb.dktcdn.net/thumb/1024x1024/100/310/257/products/ga-1-d45b2dc2-a3af-4259-9843-e60b54cd63dd.png?v=1527215295217" data-rel="prettyPhoto[product-gallery]">
                       <div style={{ height: "263px", width: "334px" }} className="zoomWrapper"><Image id="zoom_01" layout="intrinsic" width={500} height={500} src={`/img/${sp.img}`} alt={sp.name} style={{ position: "absolute" }}></Image></div>
                     </Link>
                     <div className="hidden">
                       <div className="item">
-                        <Link href="https://bizweb.dktcdn.net/100/310/257/products/ga-1-d45b2dc2-a3af-4259-9843-e60b54cd63dd.png?v=1527215295217" data-image="https://bizweb.dktcdn.net/100/310/257/products/ga-1-d45b2dc2-a3af-4259-9843-e60b54cd63dd.png?v=1527215295217" data-zoom-image="https://bizweb.dktcdn.net/100/310/257/products/ga-1-d45b2dc2-a3af-4259-9843-e60b54cd63dd.png?v=1527215295217" data-rel="prettyPhoto[product-gallery]">
+                        <Link href="https:https://bizweb.dktcdn.net/100/310/257/products/ga-1-d45b2dc2-a3af-4259-9843-e60b54cd63dd.png?v=1527215295217" data-image="https:https://bizweb.dktcdn.net/100/310/257/products/ga-1-d45b2dc2-a3af-4259-9843-e60b54cd63dd.png?v=1527215295217" data-zoom-image="https:https://bizweb.dktcdn.net/100/310/257/products/ga-1-d45b2dc2-a3af-4259-9843-e60b54cd63dd.png?v=1527215295217" data-rel="prettyPhoto[product-gallery]">
                         </Link>
                       </div>
                       <div className="item">
-                        <Link href="https://bizweb.dktcdn.net/100/310/257/products/com-ga-nuong-pho-mai-cay-63d50a98-2c72-43d4-aacf-668db364e845-ed885cf2-8eef-4437-a21a-b1fddd23487b.jpg?v=1531914415080" data-image="https://bizweb.dktcdn.net/100/310/257/products/com-ga-nuong-pho-mai-cay-63d50a98-2c72-43d4-aacf-668db364e845-ed885cf2-8eef-4437-a21a-b1fddd23487b.jpg?v=1531914415080" data-zoom-image="https://bizweb.dktcdn.net/100/310/257/products/com-ga-nuong-pho-mai-cay-63d50a98-2c72-43d4-aacf-668db364e845-ed885cf2-8eef-4437-a21a-b1fddd23487b.jpg?v=1531914415080" data-rel="prettyPhoto[product-gallery]">
+                        <Link href="https:https://bizweb.dktcdn.net/100/310/257/products/com-ga-nuong-pho-mai-cay-63d50a98-2c72-43d4-aacf-668db364e845-ed885cf2-8eef-4437-a21a-b1fddd23487b.jpg?v=1531914415080" data-image="https:https://bizweb.dktcdn.net/100/310/257/products/com-ga-nuong-pho-mai-cay-63d50a98-2c72-43d4-aacf-668db364e845-ed885cf2-8eef-4437-a21a-b1fddd23487b.jpg?v=1531914415080" data-zoom-image="https:https://bizweb.dktcdn.net/100/310/257/products/com-ga-nuong-pho-mai-cay-63d50a98-2c72-43d4-aacf-668db364e845-ed885cf2-8eef-4437-a21a-b1fddd23487b.jpg?v=1531914415080" data-rel="prettyPhoto[product-gallery]">
                         </Link>
                       </div>
                       <div className="item">
-                        <Link href="https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-37293d1b-9277-4c96-8691-f3158cbf31e2-2ce9f423-dcfb-49fb-a636-4c3f48b47a0d.jpg?v=1531914415797" data-image="https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-37293d1b-9277-4c96-8691-f3158cbf31e2-2ce9f423-dcfb-49fb-a636-4c3f48b47a0d.jpg?v=1531914415797" data-zoom-image="https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-37293d1b-9277-4c96-8691-f3158cbf31e2-2ce9f423-dcfb-49fb-a636-4c3f48b47a0d.jpg?v=1531914415797" data-rel="prettyPhoto[product-gallery]">
+                        <Link href="https:https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-37293d1b-9277-4c96-8691-f3158cbf31e2-2ce9f423-dcfb-49fb-a636-4c3f48b47a0d.jpg?v=1531914415797" data-image="https:https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-37293d1b-9277-4c96-8691-f3158cbf31e2-2ce9f423-dcfb-49fb-a636-4c3f48b47a0d.jpg?v=1531914415797" data-zoom-image="https:https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-37293d1b-9277-4c96-8691-f3158cbf31e2-2ce9f423-dcfb-49fb-a636-4c3f48b47a0d.jpg?v=1531914415797" data-rel="prettyPhoto[product-gallery]">
                         </Link>
                       </div>
                       <div className="item">
-                        <Link href="https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-bc475fed-0506-4e4a-98e0-9b8a6b5144f0-91622daf-17ca-438a-90e9-95238825cdbf.jpg?v=1531914416260" data-image="https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-bc475fed-0506-4e4a-98e0-9b8a6b5144f0-91622daf-17ca-438a-90e9-95238825cdbf.jpg?v=1531914416260" data-zoom-image="https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-bc475fed-0506-4e4a-98e0-9b8a6b5144f0-91622daf-17ca-438a-90e9-95238825cdbf.jpg?v=1531914416260" data-rel="prettyPhoto[product-gallery]">
+                        <Link href="https:https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-bc475fed-0506-4e4a-98e0-9b8a6b5144f0-91622daf-17ca-438a-90e9-95238825cdbf.jpg?v=1531914416260" data-image="https:https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-bc475fed-0506-4e4a-98e0-9b8a6b5144f0-91622daf-17ca-438a-90e9-95238825cdbf.jpg?v=1531914416260" data-zoom-image="https:https://bizweb.dktcdn.net/100/310/257/products/com-tron-hai-san-bc475fed-0506-4e4a-98e0-9b8a6b5144f0-91622daf-17ca-438a-90e9-95238825cdbf.jpg?v=1531914416260" data-rel="prettyPhoto[product-gallery]">
                         </Link>
                       </div>
 
@@ -403,7 +403,7 @@ export default function ChitietSanPham() {
                   <div className="vanchuyen">
                     <div>
                       <div className="icon">
-                        <Image src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/po_icon1.png?1676001091788" alt="vận chuyển miễn phí" />
+                        <Image src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/po_icon1.png?1676001091788" alt="vận chuyển miễn phí" />
                       </div>
                       vận chuyển miễn phí</div>
                     <p>- Nội thành Hà Nội: với đơn hàng trên <b>550.000đ</b></p>
@@ -415,7 +415,7 @@ export default function ChitietSanPham() {
             <div className="aside-item aside-product border-none aside-policy magin-bottom-0">
               <div>
                 <div className="icon">
-                  <Image src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/po_icon2.png?1676001091788" alt="Giao hàng tận nơi và nhanh chóng" />
+                  <Image src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/po_icon2.png?1676001091788" alt="Giao hàng tận nơi và nhanh chóng" />
                 </div>
                 <p>Giao hàng tận nơi và nhanh chóng</p>
               </div>
@@ -423,7 +423,7 @@ export default function ChitietSanPham() {
             <div className="aside-item aside-product aside-policy magin-bottom-30">
               <div>
                 <div className="icon">
-                  <Image src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/po_icon3.png?1676001091788" alt="Thu tiền tại nhà, đảm bảo an toàn" />
+                  <Image src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/po_icon3.png?1676001091788" alt="Thu tiền tại nhà, đảm bảo an toàn" />
                 </div>
                 <p>Thu tiền tại nhà, đảm bảo an toàn</p>
               </div>
