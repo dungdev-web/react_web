@@ -20,7 +20,7 @@ const { sequelize } = require("./database");
     await sequelize.authenticate();
     console.log("DB connected");
 
-await sequelize.sync({ force: true, constraints: false });
+await sequelize.sync({ alter: true });
 
  
     console.log("DB synced");
