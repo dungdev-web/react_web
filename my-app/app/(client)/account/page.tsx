@@ -416,9 +416,9 @@ export default function CheckAuth() {
                   <p>
                     <strong>Số điện thoại:</strong> 0{user.phone}
                   </p>
-                  {user.addresses?.address ? (
+                  {user.addresses?.[0]?.address  ? (
                     <p>
-                      <strong>Địa chỉ:</strong> {user.addresses.address}
+                      <strong>Địa chỉ:</strong> {user.addresses[0].address}
                     </p>
                   ) : (
                     <p>

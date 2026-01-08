@@ -1,7 +1,7 @@
 // hooks/useAdmin.ts
 import { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getUserRole } from "@/app/lib/userService"; // tạo cái này riêng để fetch role từ DB
+import { getUserRole } from "@/lib/userService";
 
 export default function useAdmin() {
   const [loading, setLoading] = useState(true);

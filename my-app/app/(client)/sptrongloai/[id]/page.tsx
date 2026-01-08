@@ -4,15 +4,17 @@ import { API_URL } from "../../config/config";
 import Link from "next/link";
 import "../../style/sptrongloai.css";
 
-// định nghĩa type param
+// ✅ Next 15: params là Promise
 type SPTrongLoaiProps = {
-  params: {
-    id: string; // luôn string từ route
-  };
+  params: Promise<{
+    id: string;
+  }>;
 };
 
 export default async function SPTrongLoai({ params }: SPTrongLoaiProps) {
-  const category_id = Number(params.id); // convert sang number nếu cần
+  // ✅ phải await params
+  const { id } = await params;
+  const category_id = Number(id);
 
   // gọi API
   const resSP = await fetch(`${API_URL}/api/sptrongloai/${category_id}`);
