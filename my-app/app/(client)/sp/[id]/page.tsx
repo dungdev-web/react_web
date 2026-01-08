@@ -278,8 +278,7 @@ export default function ChitietSanPham() {
                             <Link href="#">
                               <Image
                                 layout="intrinsic"
-                                width={500}
-                                height={500}
+                              
                                 src={`/Image/${value}`}  // value là tên file ảnh
                                 alt={`Thumbnail ${index + 1}`}
                                 style={{ width: "58px", marginRight: "10px" }}

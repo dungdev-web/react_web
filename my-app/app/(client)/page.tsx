@@ -9,32 +9,32 @@ import { VoucherDisplayProps } from "./components/cautrucdata";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { API_URL } from "./config/config";
-export default  function Home() {
+export default function Home() {
   const [sp_hot, setSpHot] = useState<ISanPham[]>([]);
   const [sp_moi, setSpMoi] = useState<ISanPham[]>([]);
   const [vouchers, setVouchers] = useState<VoucherDisplayProps[]>([]);
-  
+
   useEffect(() => {
     // Fetch sản phẩm hot
     fetch(`${API_URL}/api/sphot/8`)
-      .then(res => res.json())
-      .then(data => setSpHot(data));
+      .then((res) => res.json())
+      .then((data) => setSpHot(data));
 
     // Fetch sản phẩm mới
     fetch(`${API_URL}/api/spmoi/8`)
-      .then(res => res.json())
-      .then(data => setSpMoi(data));
+      .then((res) => res.json())
+      .then((data) => setSpMoi(data));
 
     // Fetch vouchers
     fetch(`${API_URL}/api/voucher/list`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data.success) setVouchers(data.vouchers);
       });
   }, []);
 
   return (
-    <div style={{position:"relative"}}>
+    <div style={{ position: "relative" }}>
       {vouchers.map((v, index) => (
         <VoucherDisplay
           key={v.code}
@@ -45,48 +45,53 @@ export default  function Home() {
         />
       ))}
       <section className="awe-section1 mb-[30px]">
-       <Image
-  src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_1.jpg?1676001091788"
-  alt="banner"
- 
-/>
-
+        <Image
+          src="https://bizweb.dktcdn.net/100/310/257/themes/801944/assets/banner_box_1.jpg?1676001091788"
+          alt="banner"
+          width={400}
+          height={300}
+        />
       </section>
       <Banner />
       <div className="container mx-auto max-w-6xl">
         {/* Sản phẩm nổi bật */}
         <div className="container1">
-          <h2 className="non my-3 text-xl font-bold uppercase text-gray-700 p-[30px] text-center relative" style={{ clear: "both" }}>
+          <h2
+            className="non my-3 text-xl font-bold uppercase text-gray-700 p-[30px] text-center relative"
+            style={{ clear: "both" }}
+          >
             Sản phẩm nổi bật
           </h2>
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
               {sp_hot.length > 0 ? (
-                sp_hot.map((sp: ISanPham) => <Show1SP key={sp.product_id} sp={sp} />)
+                sp_hot.map((sp: ISanPham) => (
+                  <Show1SP key={sp.product_id} sp={sp} />
+                ))
               ) : (
                 <p className="text-gray-500">Không có sản phẩm nào.</p>
               )}
-
             </div>
-            <button
-
-              className="mt-6 block mx-auto bg-blue-500 text-white px-6 py-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-600 hover:scale-105 hover:shadow-lg hover:ring-2 hover:ring-blue-300 active:scale-95"
-            >
-              <Link href="/sp">   Xem thêm </Link>
-
+            <button className="mt-6 block mx-auto bg-blue-500 text-white px-6 py-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-600 hover:scale-105 hover:shadow-lg hover:ring-2 hover:ring-blue-300 active:scale-95">
+              <Link href="/sp"> Xem thêm </Link>
             </button>
           </div>
         </div>
 
         {/* Sản phẩm mới */}
         <div className="container1">
-          <h2 className="non my-3 text-xl font-bold uppercase text-gray-700 p-[30px] text-center relative" style={{ clear: "both" }}>
+          <h2
+            className="non my-3 text-xl font-bold uppercase text-gray-700 p-[30px] text-center relative"
+            style={{ clear: "both" }}
+          >
             Sản phẩm mới
           </h2>
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
               {sp_moi.length > 0 ? (
-                sp_moi.map((sp: ISanPham) => <Show1SP key={sp.product_id} sp={sp} />)
+                sp_moi.map((sp: ISanPham) => (
+                  <Show1SP key={sp.product_id} sp={sp} />
+                ))
               ) : (
                 <p className="text-gray-500">Không có sản phẩm nào.</p>
               )}
