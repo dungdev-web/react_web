@@ -287,8 +287,7 @@ export default function DonHangChiTiet() {
                   <Image
                     src={`/img/${item.product.img}`}
                     alt={item.product.name}
-                    width={64}
-                    height={64}
+                    
                     className="rounded object-cover"
                   />
                 </td>
