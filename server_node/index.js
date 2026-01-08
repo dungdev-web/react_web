@@ -46,7 +46,7 @@ app.use(
     credentials: true,
          origin: [
       "http://localhost:3000",
-      "https://react-web-seven-taupe.vercel.app",
+      "https://react-web-emhk.onrender.com",
     ],
  // Cho phép gửi cookie
   })
