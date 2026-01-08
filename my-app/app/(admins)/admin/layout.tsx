@@ -11,13 +11,13 @@ return (
     <div className="sidebar">
         <h2>Dashdark X</h2>
         <ul>
-            <li><a href="/admin" className="">Dashboard</a></li>
-            <li><a href="/admin/nguoi_dung">Quản lý người dùng</a></li>
-            <li><a href="/admin/loai">Quản lý loại hàng</a></li>
-            <li><a href="/admin/san_pham">Quản lý sản phẩm</a></li>
-            <li><a href="/admin/binh_luan">Quản lý bình luận</a></li>
-            <li><a href="#">Authentication</a></li>
-            <li><a href="/">Quay về web</a></li>
+            <li><Link href="/admin" className="">Dashboard</Link></li>
+            <li><Link href="/admin/nguoi_dung">Quản lý người dùng</Link></li>
+            <li><Link href="/admin/loai">Quản lý loại hàng</Link></li>
+            <li><Link href="/admin/san_pham">Quản lý sản phẩm</Link></li>
+            <li><Link href="/admin/binh_luan">Quản lý bình luận</Link></li>
+            <li><Link href="#">Authentication</Link></li>
+            <li><Link href="/">Quay về web</Link></li>
         </ul>
     </div>
       <main className="main-content">{children}</main>

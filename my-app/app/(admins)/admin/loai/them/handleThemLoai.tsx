@@ -1,7 +1,10 @@
 "use server";
+
+import { API_URL } from "@/app/(client)/config/config";
+
 export default async function handleThemLoai(formData: FormData) {
   // Lấy giá trị từ formData
-  let loai = {
+  const loai = {
     name: formData.get("name"),
     parent_id: formData.get("parent_id") || null,  // Nếu parent_id không có thì set thành null
   };
@@ -13,7 +16,7 @@ export default async function handleThemLoai(formData: FormData) {
   }
 
   // Cấu hình request
-  let opt = {
+  const opt = {
     method: "POST",
     body: JSON.stringify(loai),
     headers: { 'Content-Type': 'application/json' },
@@ -21,7 +24,7 @@ export default async function handleThemLoai(formData: FormData) {
 
   try {
     // Gửi request và xử lý phản hồi
-    const res = await fetch('http://localhost:3000/api/admin/themloai', opt);
+    const res = await fetch(`${API_URL}/api/admin/themloai`, opt);
 
     if (!res.ok) {
       throw new Error(`Request failed with status ${res.status}`);

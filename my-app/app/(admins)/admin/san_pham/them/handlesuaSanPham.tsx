@@ -1,7 +1,8 @@
+import { API_URL } from "@/app/(client)/config/config";
 
 export default async function handleSuaSanPham(formData: FormData) {
     // Lấy giá trị từ formData
-    let sp = {
+    const sp = {
       product_id: formData.get("id"),
       name: formData.get("name"),
       img: formData.get("img") || null,
@@ -23,7 +24,7 @@ export default async function handleSuaSanPham(formData: FormData) {
     }
   
     // Cấu hình request
-    let opt = {
+    const opt = {
       method: "PUT",  // Chuyển thành PUT vì chúng ta đang sửa dữ liệu
       body: JSON.stringify(sp),
       headers: { 'Content-Type': 'application/json' },
@@ -31,7 +32,7 @@ export default async function handleSuaSanPham(formData: FormData) {
   
     try {
       // Gửi request và xử lý phản hồi
-      const res = await fetch(`http://localhost:3000/api/admin/suasanpham/${sp.product_id}`, opt);
+      const res = await fetch(`${API_URL}/api/admin/suasanpham/${sp.product_id}`, opt);
   
       if (!res.ok) {
         throw new Error(`Request failed with status ${res.status}`);

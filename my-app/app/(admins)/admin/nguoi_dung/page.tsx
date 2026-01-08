@@ -2,9 +2,10 @@
 import { useState, useEffect } from 'react';
 import { IUser } from '@/app/(client)/components/cautrucdata';
 import '../sccc.css';
-import { useRouter } from 'next/navigation';
-export default function nguoidung() {
-    const router = useRouter();
+// import { useRouter } from 'next/navigation';
+import { API_URL } from '@/app/(client)/config/config';
+export default function NguoiDung() {
+    // const router = useRouter();
     const [user, setUser] = useState<IUser[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [selectedIds, setSelectedIds] = useState<number[]>([]);
@@ -20,7 +21,7 @@ export default function nguoidung() {
         const newStatus = e.target.value === "locked" ? true : false; // Chuyển giá trị từ "locked"/"active" thành boolean
 
         try {
-            const res = await fetch(`http://localhost:3000/api/user/update-status/${userId}`, {
+            const res = await fetch(`${API_URL}/api/user/update-status/${userId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: newStatus }),
@@ -50,7 +51,7 @@ export default function nguoidung() {
         setUpdatingUserIds((prev) => [...prev, userId]); // ⏳ Bắt đầu loading
 
         try {
-            const res = await fetch(`http://localhost:3000/api/user/update-role/${userId}`, {
+            const res = await fetch(`${API_URL}/api/user/update-role/${userId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ role: newRole }),
@@ -80,7 +81,7 @@ export default function nguoidung() {
 
     const fetchCategories = async (page=1) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/nguoidung?page=${page}&limit=10`);
+            const response = await fetch(`${API_URL}/api/nguoidung?page=${page}&limit=10`);
             const data = await response.json();
             setUser(data.data);
             setTotalPages(data.totalPages);

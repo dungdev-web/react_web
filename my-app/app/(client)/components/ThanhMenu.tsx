@@ -6,8 +6,9 @@ import { API_URL } from "../config/config";
 import { ICart } from "../components/cautrucdata";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
+import Image from "next/image";
 export default function ThanhMenu() {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [dataLoai, setDataLoai] = useState<ILoai[]>([]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const cartItems: ICart[] = useSelector(
@@ -211,7 +212,7 @@ export default function ThanhMenu() {
           border-bottom: 1px solid #eee;
         }
 
-        .logo-wrapper-mobile img {
+        .logo-wrapper-mobile Image {
           max-width: 120px;
           height: auto;
         }
@@ -242,7 +243,7 @@ export default function ThanhMenu() {
         {/* Logo trong sidebar */}
         <div className="logo-wrapper-mobile">
           <Link href="/" onClick={toggleSidebar}>
-            <img
+            <Image
               src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/logo.png?1676001091788"
               alt="logo"
             />
@@ -373,7 +374,7 @@ export default function ThanhMenu() {
         <div className="text-center">
           <div className="logo inline-block">
             <Link href="/" className="logo-wrapper">
-              <img
+              <Image
                 src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/logo.png?1676001091788"
                 alt="logo"
               />

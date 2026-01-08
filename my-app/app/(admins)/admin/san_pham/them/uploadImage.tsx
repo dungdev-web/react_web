@@ -1,6 +1,7 @@
 "use client";
+import { API_URL } from "@/app/(client)/config/config";
 import { useState } from "react";
-
+import Image from "next/image";
 export default function UploadImage({ name }: { name: string }) {
   const [image, setImage] = useState<string | null>(null);
 
@@ -11,7 +12,7 @@ export default function UploadImage({ name }: { name: string }) {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch("http://localhost:3000/api/upload", {
+    const res = await fetch(`${API_URL}/api/upload`, {
       method: "POST",
       body: formData,
     });
@@ -37,7 +38,7 @@ export default function UploadImage({ name }: { name: string }) {
         onChange={handleUpload}
         className="border p-2 w-full"
       />
-      {image && <img src={image} alt="Hình ảnh" className="w-32 h-32 mt-2" />}
+      {image && <Image src={image} alt="Hình ảnh" className="w-32 h-32 mt-2" />}
     </div>
   );
 }

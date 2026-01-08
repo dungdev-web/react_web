@@ -4,6 +4,7 @@ import { RootState } from "@/lib/store";
 import { ICart } from "../components/cautrucdata";
 import { suaSL, xoaSP } from "@/lib/cartSlice";
 import Link from "next/link";
+import Image from "next/image";
 import Swal from "sweetalert2";
 export default function GioHang() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ export default function GioHang() {
             {cart_arr.map((sp: ICart, index: number) => (
               <tr key={index} className="border border-black">
                 <td className="border border-black p-2">{sp.ten_sp}</td>
-                <td className="border border-black p-2"><img className="w-[60px] h-auto object-contain" src={`img/${sp.hinh}`} alt="" /></td>
+                <td className="border border-black p-2"><Image className="w-[60px] h-auto object-contain" src={`img/${sp.hinh}`} alt="" /></td>
                 <td className="border border-black p-2 text-center">
                   <input
                     type="number"

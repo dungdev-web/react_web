@@ -1,7 +1,9 @@
+"use client";
 import React, { useState, ChangeEvent, useRef } from 'react';
-import { IUser } from '../../components/cautrucdata';
-import { API_URL } from '../../config/config';
-import "../../style/img111.css";
+import { IUser } from '@/app/(client)/components/cautrucdata';
+import { API_URL } from '@/app/(client)/config/config';
+import "../../../(client)/style/img111.css";
+import Image from 'next/image';
 type Props = {
     user: IUser;
     onAvatarChange?: (newAvatar: string) => void; // callback để cập nhật user bên ngoài
@@ -58,7 +60,7 @@ const AvatarUpload: React.FC<Props> = ({ user, onAvatarChange }) => {
     return (
         <div>
             <div className="avatar-upload">
-                <img
+                <Image
                     src={preview || `${API_URL}/api/avatar/${user.avatar}?t=${Date.now()}`}
                     alt="avatar"
                     onError={(e) => {

@@ -5,7 +5,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 export default function RootLayout({
   children,
 }: Readonly<{

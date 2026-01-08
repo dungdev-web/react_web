@@ -1,8 +1,7 @@
 // import { form } from "motion/react-client";
-import { div } from "motion/react-client";
 import handleThemLoai from "./handleThemLoai";
 export default function ThemLoai() {
-    const loai = { name: "", parent_id: 0 || null }
+    // const loai = { name: "", parent_id: 0 || null }
     return (
         <div className="form-tt">
             <h2 className="!text-left">Thêm loại</h2>

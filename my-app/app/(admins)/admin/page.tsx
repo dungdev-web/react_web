@@ -1,35 +1,37 @@
 "use client"
-import { div } from "motion/react-client";
 import Image from "next/image";
+import Script from "next/script";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "./sccc.css";
-import { IDonHang } from "@/app/(client)/components/cautrucdata";
+import { IDonHang,ICartItem } from "@/app/(client)/components/cautrucdata";
 import NestedDonutChart from "./component/chart";
 import RevenueChart from "./component/chart2";
 import TaskChart from "./component/chart3";
+import { API_URL } from "@/app/(client)/config/config";
 export default function Dashboard() {
     const [salesData, setSalesData] = useState({
         currentMonthTotalSold: 0,
         previousMonthTotalSold: 0,
         percentageChange: 0
     });
-    const [donHang, setDonHang] = useState<any[]>([]);
+    const [donHang, setDonHang] = useState<IDonHang[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(1);
-    const [voucherCode, setVoucherCode] = useState<string>(""); // Voucher code state
+    // const [voucherCode, setVoucherCode] = useState<string>(""); // Voucher code state
     const [errorMessage, setErrorMessage] = useState<string>("");
     const [finalTotals, setFinalTotals] = useState<{ [key: string]: number }>({});
 
     useEffect(() => {
         // Fetch sales data
-        fetch("http://localhost:3000/api/admin/product/sold")
+        fetch(`${API_URL}/api/admin/product/sold`)
             .then(response => response.json())
             .then(data => setSalesData(data))
             .catch(error => console.error("Error fetching sales data:", error));
 
         // Fetch orders with pagination
-        fetch(`http://localhost:3000/api/donhang?page=${currentPage}&limit=5`)
+        fetch(`${API_URL}/api/donhang?page=${currentPage}&limit=5`)
             .then(response => response.json())
             .then(data => {
                 setDonHang(data.donhang);
@@ -42,7 +44,7 @@ export default function Dashboard() {
     // Apply voucher to order
     const applyVoucher = async (orderTotal: number, voucherCode: string): Promise<number> => {
         try {
-            const response = await fetch('http://localhost:3000/api/voucher/apply', {
+            const response = await fetch(`${API_URL}/api/voucher/apply`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ code: voucherCode, order_total: orderTotal }) // Correctly pass voucherCode
@@ -69,7 +71,7 @@ export default function Dashboard() {
         const updateFinalTotals = async () => {
             const updatedTotals: { [key: string]: number } = {};
             for (const order of donHang) {
-                const orderTotal = order.cartitem.reduce((total: number, item: any) => {
+                const orderTotal = order.cartitem.reduce((total: number, item: ICartItem) => {
                     const price = item.product?.discount_price || 0;
                     const quantity = item.quantity || 1;
                     return total + (price * quantity);
@@ -83,7 +85,7 @@ export default function Dashboard() {
         };
 
         updateFinalTotals();
-    }, [donHang, voucherCode]);
+    }, [donHang]);
 
     // Handle page change
     const handlePageChange = (newPage: number) => {
@@ -91,10 +93,13 @@ export default function Dashboard() {
             setCurrentPage(newPage);
         }
     };
+    if (!donHang) {
+        return errorMessage ? <div>{errorMessage}</div> : <div>Loading...</div>;
+    }
     return (
         <div >
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+            <Script  src="https://cdn.jsdelivr.net/npm/chart.js"></Script >
+            <Script  src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></Script >
 
             <header>
                 <div className="title">
@@ -118,7 +123,7 @@ export default function Dashboard() {
                             <path fill="#CF1B2B" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z"></path>
                         </svg>
                         <i className="fa-solid fa-bell"></i>
-                        <img src="src/assets/images/avater.png" className="MuiAvatar-img css-1pqm26d-MuiAvatar-img" />
+                        <Image alt="..." src="src/assets/images/avater.png" className="MuiAvatar-img css-1pqm26d-MuiAvatar-img" />
                         <p>DŨng nè</p>
                     </div>
                 </div>
@@ -293,7 +298,7 @@ export default function Dashboard() {
                         <div className="product-item">
                             <div className="title">
                                 <div className="hinh">
-                                    <img src="/img/hinh2.webp" alt="Hình ảnh mô tả" />
+                                    <Image src="/img/hinh2.webp" alt="Hình ảnh mô tả" />
 
 
                                 </div>
@@ -309,7 +314,7 @@ export default function Dashboard() {
                         <div className="product-item">
                             <div className="title">
                                 <div className="hinh">
-                                    <img src="/img/hinh2.webp" alt="" />
+                                    <Image src="/img/hinh2.webp" alt="" />
                                 </div>
                                 <div className="stock">
                                     <p>Tên sp</p>
@@ -323,7 +328,7 @@ export default function Dashboard() {
                         <div className="product-item">
                             <div className="title">
                                 <div className="hinh">
-                                    <img src="/img/hinh2.webp" alt="" />
+                                    <Image src="/img/hinh2.webp" alt="" />
                                 </div>
                                 <div className="stock">
                                     <p>Tên sp</p>
@@ -337,7 +342,7 @@ export default function Dashboard() {
                         <div className="product-item">
                             <div className="title">
                                 <div className="hinh">
-                                    <img src="/img/hinh2.webp" alt="" />
+                                    <Image src="/img/hinh2.webp" alt="" />
                                 </div>
                                 <div className="stock">
                                     <p>Tên sp</p>
@@ -351,7 +356,7 @@ export default function Dashboard() {
                         <div className="product-item">
                             <div className="title">
                                 <div className="hinh">
-                                    <img src="/img/hinh2.webp" alt="" />
+                                    <Image src="/img/hinh2.webp" alt="" />
                                 </div>
                                 <div className="stock">
                                     <p>Tên sp</p>
@@ -365,7 +370,7 @@ export default function Dashboard() {
                         <div className="product-item">
                             <div className="title">
                                 <div className="hinh">
-                                    <img src="/img/hinh2.webp" alt="" />
+                                    <Image src="/img/hinh2.webp" alt="" />
                                 </div>
                                 <div className="stock">
                                     <p>Tên sp</p>
@@ -379,7 +384,7 @@ export default function Dashboard() {
                         <div className="product-item">
                             <div className="title">
                                 <div className="hinh">
-                                    <img src="/img/hinh2.webp" alt="" />
+                                    <Image src="/img/hinh2.webp" alt="" />
                                 </div>
                                 <div className="stock">
                                     <p>Tên sp</p>
@@ -481,10 +486,10 @@ export default function Dashboard() {
                         <tbody>
                             {donHang?.map((order) => {
                                 const finalTotal = finalTotals[order.cart_id]; // Get the final total from state
-                                const tongtien = order.cartitem?.reduce((total: number, item: any) => {
-                                    const price = item.product.discount_price || item.product.price;
-                                    return total + price * item.quantity;
-                                }, 0) - finalTotal;
+                                // const tongtien = order.cartitem?.reduce((total: number, item: any) => {
+                                //     const price = item.product.discount_price || item.product.price;
+                                //     return total + price * item.quantity;
+                                // }, 0) - finalTotal;
                                 const shippingFee = finalTotal < 200000 ? 20000 : 0;
                                 return (
                                     <tr key={order.cart_id}>

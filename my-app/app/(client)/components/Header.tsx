@@ -9,6 +9,7 @@ import { ICart } from "../components/cautrucdata";
 import { IUser } from "../components/cautrucdata";
 import { RootState } from "@/lib/store";
 import Link from "next/link";
+import Image from "next/image";
 import { API_URL } from "../config/config";
 export default function Header() {
   const cartItems: ICart[] = useSelector(
@@ -74,6 +75,12 @@ export default function Header() {
 
     fetchUser();
   }, []);
+  if (loading) {
+    return null; // Hoặc hiển thị một spinner/loading indicator
+  }
+  if(message){
+    console.log(message);
+  }
   return (
     <header className="header">
       <div className="bg-[#c10a28] text-white text-center h-[40px] leading-[40px]">
@@ -95,7 +102,7 @@ export default function Header() {
                     ></i>
 
                     <span>
-                      <a href="callto:19006750"> 1900 6750</a>
+                      <Link href="callto:19006750"> 1900 6750</Link>
                     </span>
                   </li>
                   <li className="margin-left-20">
@@ -147,9 +154,9 @@ export default function Header() {
                   )}
 
                   <li className="li-search">
-                    <a href="#">
+                    <Link href="#">
                       <i className="fa fa-search text-[#fff]"></i>
-                    </a>
+                    </Link>
                     <div className="dropdown topbar-dropdown  hidden-sm hidden-xs">
                       <div className="content a-center">
                         <div className="header_search search_form">
@@ -230,19 +237,19 @@ export default function Header() {
         <div className="container1">
           <ul className="nav_collec_mn hidden-xs hidden-sm">
             <li className="nav-item ">
-              <a className="nav-link" href="/sptrongloai/1">
-                <img
+              <Link className="nav-link" href="/sptrongloai/1">
+                <Image
                   className="icon_menu"
                   src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
                   alt="Pizza"
                 />
                 Pizza
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item ">
               <Link className="nav-link" href="/sptrongloai/2">
-                <img
+                <Image
                   className="icon_menu"
                   src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_2.png?1676001091788"
                   alt="Burger"
@@ -253,7 +260,7 @@ export default function Header() {
 
             <li className="nav-item ">
               <Link className="nav-link" href="/sptrongloai/3">
-                <img
+                <Image
                   className="icon_menu"
                   src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_3.png?1676001091788"
                   alt="Đồ uống"
@@ -264,7 +271,7 @@ export default function Header() {
 
             <li className="nav-item ">
               <Link className="nav-link" href="/sptrongloai/4">
-                <img
+                <Image
                   className="icon_menu"
                   src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_4.png?1676001091788"
                   alt="Trà Sữa"
@@ -275,7 +282,7 @@ export default function Header() {
 
             <li className="nav-item ">
               <Link className="nav-link" href="/sptrongloai/5">
-                <img
+                <Image
                   className="icon_menu"
                   src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_5.png?1676001091788"
                   alt="Khoai chiên"
@@ -285,7 +292,7 @@ export default function Header() {
             </li>
             <li className="nav-item ">
               <Link className="nav-link" href="/sptrongloai/6">
-                <img
+                <Image
                   className="icon_menu"
                   src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
                   alt="Hoa quả"
@@ -298,15 +305,15 @@ export default function Header() {
             <div className="head-menu clearfix">
               <ul className="list-inline">
                 <li>
-                  <a href="/account/login">
+                  <Link href="/account/login">
                     <i className="fa fa-user"></i> Đăng nhập
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <span>hoặc</span>
                 </li>
                 <li>
-                  <a href="/account/register">Đăng ký</a>
+                  <Link href="/account/register">Đăng ký</Link>
                 </li>
 
                 <li className="li-search">
@@ -342,175 +349,175 @@ export default function Header() {
               <li className="h3">MENU</li>
 
               <li className="nav-item active">
-                <a className="nav-link" href="/">
+                <Link className="nav-link" href="/">
                   Trang chủ
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item ">
-                <a className="nav-link" href="/gioi-thieu">
+                <Link className="nav-link" href="/gioi-thieu">
                   Giới thiệu
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item ">
-                <a href="/collections/all" className="nav-link">
+                <Link href="/collections/all" className="nav-link">
                   Thực đơn <i className="fa faa fa-angle-right"></i>
-                </a>
+                </Link>
 
                 <ul className="dropdown-menu">
                   <li className="dropdown-submenu nav-item-lv2">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Bánh Piza <i className="fa faa fa-angle-right"></i>
-                    </a>
+                    </Link>
 
                     <ul className="dropdown-menu">
                       <li className="nav-item-lv3">
-                        <a className="nav-link" href="/">
+                        <Link className="nav-link" href="/">
                           Pizza Hải Sản
-                        </a>
+                        </Link>
                       </li>
 
                       <li className="nav-item-lv3">
-                        <a className="nav-link" href="/">
+                        <Link className="nav-link" href="/">
                           Pizza Rau Củ
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
 
                   <li className="nav-item-lv2">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Burger
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item-lv2">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Đồ uống
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item-lv2">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Trà sữa
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item-lv2">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Hoa quả
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item-lv2">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Salad
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item-lv2">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Xúc xích
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item-lv2">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Khoai tây
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item-lv2">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Piza
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item ">
-                <a className="nav-link" href="/tin-tuc">
+                <Link className="nav-link" href="/tin-tuc">
                   Tin tức
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item ">
-                <a className="nav-link" href="/lien-he">
+                <Link className="nav-link" href="/lien-he">
                   Liên hệ
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item ">
-                <a className="nav-link" href="/gioi-thieu">
+                <Link className="nav-link" href="/gioi-thieu">
                   Nhượng quyền
-                </a>
+                </Link>
               </li>
               <li className="h3">Danh mục</li>
 
               <li className="nav-item ">
-                <a className="nav-link" href="/san-pham-noi-bat">
-                  <img
+                <Link className="nav-link" href="/san-pham-noi-bat">
+                  <Image
                     className="icon_menu"
                     src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_1.png?1676001091788"
                     alt="Pizza"
                   />
                   Pizza
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item ">
-                <a className="nav-link" href="/san-pham-khuyen-mai">
-                  <img
+                <Link className="nav-link" href="/san-pham-khuyen-mai">
+                  <Image
                     className="icon_menu"
                     src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_2.png?1676001091788"
                     alt="Burger"
                   />
                   Burger
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item ">
-                <a className="nav-link" href="/san-pham-ban-chay">
-                  <img
+                <Link className="nav-link" href="/san-pham-ban-chay">
+                  <Image
                     className="icon_menu"
                     src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_3.png?1676001091788"
                     alt="Đồ uống"
                   />
                   Đồ uống
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item ">
-                <a className="nav-link" href="/dang-giam-gia">
-                  <img
+                <Link className="nav-link" href="/dang-giam-gia">
+                  <Image
                     className="icon_menu"
                     src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_4.png?1676001091788"
                     alt="Trà Sữa"
                   />
                   Trà Sữa
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item ">
-                <a className="nav-link" href="/com-tron">
-                  <img
+                <Link className="nav-link" href="/com-tron">
+                  <Image
                     className="icon_menu"
                     src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_5.png?1676001091788"
                     alt="Khoai chiên"
                   />
                   Khoai chiên
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item ">
-                <a className="nav-link" href="/ga-ran">
-                  <img
+                <Link className="nav-link" href="/ga-ran">
+                  <Image
                     className="icon_menu"
                     src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/menu_icon_6.png?1676001091788"
                     alt="Hoa quả"
                   />
                   Hoa quả
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

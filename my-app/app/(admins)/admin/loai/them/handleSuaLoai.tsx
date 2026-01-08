@@ -1,8 +1,10 @@
 "use server";
 
+import { API_URL } from "@/app/(client)/config/config";
+
 export default async function handleSuaLoai(formData: FormData) {
   // Lấy giá trị từ formData
-  let loai = {
+  const  loai = {
     category_id: formData.get("id"),
     name: formData.get("name"),
     parent_id: formData.get("parent_id") || null,  // Nếu parent_id không có thì set thành null
@@ -15,7 +17,7 @@ export default async function handleSuaLoai(formData: FormData) {
   }
 
   // Cấu hình request
-  let opt = {
+  const opt = {
     method: "PUT",
     body: JSON.stringify(loai),
     headers: { 'Content-Type': 'application/json' },
@@ -23,7 +25,7 @@ export default async function handleSuaLoai(formData: FormData) {
 
   try {
     // Gửi request và xử lý phản hồi
-    const res = await fetch(`http://localhost:3000/api/admin/sualoai/${loai.category_id}`, opt);
+    const res = await fetch(`${API_URL}/api/admin/sualoai/${loai.category_id}`, opt);
 
     if (!res.ok) {
       throw new Error(`Request failed with status ${res.status}`);

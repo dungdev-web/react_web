@@ -1,19 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import '../sccc.css';
 import Link from "next/link";
 import { ILoai } from "@/app/(client)/components/cautrucdata";
+import { API_URL } from "@/app/(client)/config/config";
 
-export default function Sanpham({ id }: { id: number }) {
+export default function Sanpham() {
     const [categories, setCategories] = useState<ILoai[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [selectedIds, setSelectedIds] = useState<number[]>([]); // 🆕 Quản lý các checkbox được chọn
-    const router = useRouter();
+    // const router = useRouter();
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/loai');
+            const response = await fetch(`${API_URL}/api/loai`);
             const data = await response.json();
             setCategories(data);
             setLoading(false);
@@ -44,7 +45,7 @@ export default function Sanpham({ id }: { id: number }) {
         if (!confirm("Bạn có chắc chắn muốn xóa không?")) return;
 
         try {
-            const res = await fetch(`http://localhost:3000/api/admin/xoaloai/${categoryId}`, {
+            const res = await fetch(`${API_URL}/api/admin/xoaloai/${categoryId}`, {
                 method: "DELETE",
             });
 
@@ -71,7 +72,7 @@ export default function Sanpham({ id }: { id: number }) {
         if (!confirm("Bạn có chắc chắn muốn xóa những loại đã chọn?")) return;
 
         try {
-            const res = await fetch(`http://localhost:3000/api/admin/xoanhieuloai`, {
+            const res = await fetch(`${API_URL}/api/admin/xoanhieuloai`, {
                 method: "DELETE",
                 headers: {
                     'Content-Type': 'application/json',

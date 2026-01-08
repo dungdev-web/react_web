@@ -7,12 +7,13 @@ import {
   Province,
   District,
   Ward,
+  ICartItem,
 } from "../components/cautrucdata";
 import Swal from "sweetalert2";
-import AvatarUpload from "./uploadimg/page";
+import AvatarUpload from "@/app/(admins)/admin/component/AvatarUpload";
 import Link from "next/link";
+import Image from "next/image";
 import "../style/account.css";
-import { tr } from "motion/react-client";
 import { API_URL } from "../config/config";
 export default function CheckAuth() {
   const [user, setUser] = useState<IUser | null>(null);
@@ -23,8 +24,7 @@ export default function CheckAuth() {
   >("info");
   const [donhang, setDonhang] = useState<IDonHang[]>([]);
   const [selectedOrder, setSelectedOrder] = useState<IDonHang | null>(null);
-  const [totalPages, setTotalPages] = useState<number>(1);
-  const [voucherCode, setVoucherCode] = useState<string>("");
+ 
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [finalTotals, setFinalTotals] = useState<{ [key: string]: number }>({});
   const [addresses, setAddresses] = useState<IAddress[]>([]);
@@ -33,10 +33,7 @@ export default function CheckAuth() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [company, setCompany] = useState("");
   const [address, setAddress] = useState("");
-  const [nation, setNation] = useState("");
   const [provinces, setProvinces] = useState<Province[]>([]);
   const [districts, setDistricts] = useState<District[]>([]);
   const [wards, setWards] = useState<Ward[]>([]);
@@ -203,7 +200,7 @@ export default function CheckAuth() {
     const updateFinalTotals = async () => {
       const updatedTotals: { [key: string]: number } = {};
       for (const order of donhang) {
-        const orderTotal = order.cartitem.reduce((total: number, item: any) => {
+        const orderTotal = order.cartitem.reduce((total: number, item: ICartItem) => {
           const price = item.product?.discount_price || 0;
           const quantity = item.quantity || 1;
           return total + price * quantity;
@@ -217,7 +214,7 @@ export default function CheckAuth() {
     };
 
     updateFinalTotals();
-  }, [donhang, voucherCode]);
+  }, [donhang]);
   useEffect(() => {
     const fetchUser = async () => {
       const token = localStorage.getItem("token"); // Lấy token từ localStorage
@@ -270,7 +267,22 @@ export default function CheckAuth() {
 
     fetchUser();
   }, []);
-
+  if (loading) {
+    return <p>Đang kiểm tra xác thực...</p>;
+  }
+  if (!user) {
+    return (<div className="text-center">
+      <p className="text-red-500">{errorMessage}</p>
+      {errorMessage === "Chưa đăng nhập!" && (
+        <Link
+          href="/dang_nhap"
+          className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+        >
+          Đăng nhập
+        </Link>
+      )}
+    </div>);
+  }
   return (
     <div>
       <section className="bread-crumb">
@@ -283,9 +295,9 @@ export default function CheckAuth() {
 
               <ul className="breadcrumb">
                 <li className="home">
-                  <a href="/">
+                  <Link href="/">
                     <span>Trang chủ</span>
-                  </a>
+                  </Link>
                   <span> / </span>
                 </li>
 
@@ -312,12 +324,12 @@ export default function CheckAuth() {
                 <div className="text-center">
                     <p className="text-red-500">{message}</p>
                     {message === "Chưa đăng nhập!" && (
-                        <a
+                        <button
                             href="/dang_nhap"
                             className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
                         >
                             Đăng nhập
-                        </a>
+                        </button>
                     )}
                 </div>
             )}
@@ -349,44 +361,44 @@ export default function CheckAuth() {
 
                 <ul className="cursor-pointer">
                   <li>
-                    <a
+                    <button
                       className={`title-info ${
                         activeTab === "info" ? "active" : ""
                       }`}
                       onClick={() => setActiveTab("info")}
                     >
                       Thông tin tài khoản
-                    </a>
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
                       className={`title-info ${
                         activeTab === "orders" ? "active" : ""
                       }`}
                       onClick={() => setActiveTab("orders")}
                     >
                       Đơn hàng của bạn
-                    </a>
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
                       className={`title-info ${
                         activeTab === "changespass" ? "active" : ""
                       }`}
                       onClick={() => setActiveTab("changespass")}
                     >
                       Đổi mật khẩu
-                    </a>
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
                       className={`title-info ${
                         activeTab === "addressuser" ? "active" : ""
                       }`}
                       onClick={() => setActiveTab("addressuser")}
                     >
                       Sổ địa chỉ ({addresses?.length || 0})
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -708,7 +720,7 @@ export default function CheckAuth() {
                               {finalTotal
                                 ? (
                                     selectedOrder.cartitem?.reduce(
-                                      (total: number, item: any) => {
+                                      (total: number, item: ICartItem) => {
                                         const price =
                                           item.product.discount_price ||
                                           item.product.price;
@@ -771,7 +783,7 @@ export default function CheckAuth() {
                               </thead>
                               <tbody>
                                 {selectedOrder.cartitem?.map(
-                                  (item: any, index: number) => (
+                                  (item: ICartItem, index: number) => (
                                     <tr key={item.item_id || `item-${index}`}>
                                       <td className="ten">
                                         <div className="image_order">
@@ -779,7 +791,7 @@ export default function CheckAuth() {
                                             href={`/sp/${item.product?.product_id}`}
                                             passHref
                                           >
-                                            <img
+                                            <Image
                                               src={`/img/${item.product?.img}`}
                                               alt=""
                                             />
@@ -1201,12 +1213,12 @@ export default function CheckAuth() {
           <div className="text-center">
             <p className="text-red-500">{message}</p>
             {message === "Chưa đăng nhập!" && (
-              <a
+              <Link
                 href="/dang_nhap"
                 className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
               >
                 Đăng nhập
-              </a>
+              </Link>
             )}
           </div>
         )}

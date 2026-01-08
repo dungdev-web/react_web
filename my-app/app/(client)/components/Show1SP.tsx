@@ -2,12 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ISanPham } from "./cautrucdata";
-import { useDispatch, UseDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { themSP } from "@/lib/cartSlice";
 import Swal from "sweetalert2";
 
-export default function Show1SP(props: any) {
-  let sp = props.sp as ISanPham;
+export default function Show1SP(props: { sp: ISanPham | unknown }) {
+  const sp = props.sp as ISanPham;
   const dispatch = useDispatch();
   return (
     <div className="bg-white shadow-lg rounded-lg  flex flex-col items-center text-center product-card relative ">
@@ -44,7 +44,7 @@ export default function Show1SP(props: any) {
           }}>
             🛒
           </button>
-          <a href="#" title="Xem chi tiết">👁️</a>
+          <Link href="#" title="Xem chi tiết">👁️</Link>
         </div>
       </div>
       <h2 className="font-bold text-lg mt-2">{sp.name}</h2>

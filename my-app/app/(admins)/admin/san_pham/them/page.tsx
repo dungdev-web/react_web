@@ -1,18 +1,18 @@
 'use client';
 import { useState, useEffect } from "react";
 // import { form } from "motion/react-client";
-import { div } from "motion/react-client";
 import UploadImage from "./uploadImage";
 import handleThemSanPham from "./handlethemSanPham";
 import { ILoai } from "@/app/(client)/components/cautrucdata";
+import { API_URL } from "@/app/(client)/config/config";
 
 export default function ThemLoai() {
-    const sp = { name: "", img: "", price: 0, discount_price: 0, description: "", category_id: 0, stock: 0, hot: false }
+    // const sp = { name: "", img: "", price: 0, discount_price: 0, description: "", category_id: 0, stock: 0, hot: false }
     const [loai, setLoai] = useState<ILoai[]>([]); // Để lưu các danh mục sản phẩm
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const res = await fetch("http://localhost:3000/api/loai"); // API để lấy danh mục sản phẩm
+                const res = await fetch(`${API_URL}/api/loai`); // API để lấy danh mục sản phẩm
                 const data = await res.json();
                 setLoai(data);
             } catch (err) {

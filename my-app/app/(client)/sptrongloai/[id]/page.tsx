@@ -1,59 +1,64 @@
-import { ILoai,ISanPham } from "../../components/cautrucdata";
+import { ILoai, ISanPham } from "../../components/cautrucdata";
 import Show1SP from "../../components/Show1SP";
 import { API_URL } from "../../config/config";
+import Link from "next/link";
 import "../../style/sptrongloai.css";
-export default async function SPTrongLoai({ params }: { params: { id: number } }) {
-    //lấy tham số id trong router
-    let category_id = params.id;
-    //call api lấy sp trong loại
-    let resSP = await fetch(`${API_URL}/api/sptrongloai/${category_id}`);
-    let dataSP = await resSP.json();
-    let sp_arr: ISanPham[] = dataSP as ISanPham[];
-    //call api lấy loại
-    let resLoai = await fetch(`${API_URL}/api/loai/${category_id}`);
-    let kq_loai: any = await resLoai.json();
-    let loai: ILoai = kq_loai as ILoai;
-    return (
-        <div>
-            <section className="bread-crumb">
-                <div className="container1">
-                    <div className="rows">
-                        <div className="col-xs-12">
 
-                            <div className="breadcrumb-title"><b> Sản phẩm trong loại </b></div>
+// định nghĩa type param
+type SPTrongLoaiProps = {
+  params: {
+    id: string; // luôn string từ route
+  };
+};
 
-                            <ul className="breadcrumb">
+export default async function SPTrongLoai({ params }: SPTrongLoaiProps) {
+  const category_id = Number(params.id); // convert sang number nếu cần
 
-                                <li className="home">
-                                    <a href="/"><span>Trang chủ</span></a>
-                                    <span> / </span>
-                                </li>
+  // gọi API
+  const resSP = await fetch(`${API_URL}/api/sptrongloai/${category_id}`);
+  const sp_arr: ISanPham[] = await resSP.json();
 
+  const resLoai = await fetch(`${API_URL}/api/loai/${category_id}`);
+  const loai: ILoai = await resLoai.json();
 
-                                <li><strong><span> Sản phẩm trong loại {loai.name}</span></strong></li>
-
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div className="container mx-auto p-4">
-
-                <div className="container1">
-
-                    <div className="container mx-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
-                            {sp_arr.length > 0 ? (
-                                sp_arr.map((sp: ISanPham) => <Show1SP key={sp.product_id} sp={sp} />)
-                            ) : (
-                                <p className="text-gray-500">Không có sản phẩm nào.</p>
-                            )}
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div>
+      <section className="bread-crumb">
+        <div className="container1">
+          <div className="rows">
+            <div className="col-xs-12">
+              <div className="breadcrumb-title">
+                <b>Sản phẩm trong loại</b>
+              </div>
+              <ul className="breadcrumb">
+                <li className="home">
+                  <Link href="/"><span>Trang chủ</span></Link>
+                  <span> / </span>
+                </li>
+                <li>
+                  <strong>
+                    <span>Sản phẩm trong loại {loai.name}</span>
+                  </strong>
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
-    )
+      </section>
 
+      <div className="container mx-auto p-4">
+        <div className="container1">
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
+              {sp_arr.length > 0 ? (
+                sp_arr.map(sp => <Show1SP key={sp.product_id} sp={sp} />)
+              ) : (
+                <p className="text-gray-500">Không có sản phẩm nào.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

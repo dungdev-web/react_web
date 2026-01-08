@@ -1,7 +1,7 @@
 "use client";
 import { API_URL } from "../config/config";
 import "../style/lien_he.css";
-
+import Link from "next/link";
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 export default function Lienhe() {
   const [formData, setFormData] = useState({
@@ -67,9 +67,9 @@ export default function Lienhe() {
 
               <ul className="breadcrumb">
                 <li className="home">
-                  <a href="/">
+                  <Link href="/">
                     <span>Trang chủ</span>
-                  </a>
+                  </Link>
                   <span> / </span>
                 </li>
 
@@ -205,7 +205,7 @@ export default function Lienhe() {
                           <i className="fa fa-phone"></i>
                           <div className="info">
                             <label>Số điện thoại</label>
-                            <a href="tel:19006750">1900 6750</a>
+                            <Link href="tel:19006750">1900 6750</Link>
                             <p>Thứ 2 - Chủ nhật: 9:00 - 18:00</p>
                           </div>
                         </div>
@@ -214,7 +214,7 @@ export default function Lienhe() {
                           <i className="fa fa-envelope"></i>
                           <div className="info">
                             <label>Email</label>
-                            <a href="mailto:support@sapo.vn">support@sapo.vn</a>
+                            <Link href="mailto:support@sapo.vn">support@sapo.vn</Link>
                           </div>
                         </div>
                       </div>

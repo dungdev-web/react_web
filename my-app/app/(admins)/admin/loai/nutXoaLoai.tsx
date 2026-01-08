@@ -1,4 +1,5 @@
 "use client";
+import { API_URL } from "@/app/(client)/config/config";
 import { useRouter } from "next/navigation";
 
 export default function XoaSP({ id }: { id: number }) {
@@ -8,7 +9,7 @@ export default function XoaSP({ id }: { id: number }) {
     if (!confirm("Xóa sản phẩm này?")) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/admin/xoaloai/${id}`, {
+      const res = await fetch(`${API_URL}/api/admin/xoaloai/${id}`, {
         method: "DELETE",
       });
 

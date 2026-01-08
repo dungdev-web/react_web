@@ -1,8 +1,9 @@
 "use client"
-import { motion } from "framer-motion";
 import { useState } from "react";
 import "../style/login.css";
 import { API_URL } from "../config/config";
+import Link from "next/link";
+import Image from "next/image";
 export default function DangKy() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -77,7 +78,7 @@ export default function DangKy() {
                             <ul className="breadcrumb">
 
                                 <li className="home">
-                                    <a href="/"><span>Trang chủ</span></a>
+                                    <Link href="/"><span>Trang chủ</span></Link>
                                     <span> / </span>
                                 </li>
 
@@ -99,14 +100,14 @@ export default function DangKy() {
                         <div className="page-login margin-bottom-30">
                             <div id="login" className="px-4">
                                 <div className="social-login  text-left margin-bottom-20 margin-top-10">
-                                    <a href="javascript:void(0)" className="social-login--facebook mr-[5px]" style={{ display: "inline-block" }}>
-                                        <img
-                                            width="129px" height="37px" alt="facebook-login-button"
-                                            src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg" /></a>
-                                    <a href="javascript:void(0)" className="social-login--google mr-[5px]" style={{ display: "inline-block" }} >
-                                        <img
-                                            width="129px" height="37px" alt="google-login-button"
-                                            src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg" /></a>
+                                    <Link href="javascript:void(0)" className="social-login--facebook mr-[5px]" style={{ display: "inline-block" }}>
+                                        <Image
+                                            width={129} height={37} alt="facebook-login-button"
+                                            src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg" /></Link>
+                                    <Link href="javascript:void(0)" className="social-login--google mr-[5px]" style={{ display: "inline-block" }} >
+                                        <Image
+                                            width={129} height={37} alt="google-login-button"
+                                            src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg" /></Link>
                                 </div>
                                 <span>
                                     Nếu bạn đã có tài khoản, đăng nhập tại đây.
@@ -140,8 +141,8 @@ export default function DangKy() {
                                             <div className="pull-xs-left" style={{ marginTop: "25px" }}>
                                                 <button className="btn btn-primary" type="submit">Đăng ký</button>
                                                 {/* <input className="btn btn-primary" type="submit" value="Đăng nhập" /> */}
-                                                <a href="/dang_nhap" className="btn-link-style btn-register"
-                                                    style={{ marginLeft: " 20px", textDecoration: " underline " }}>Đăng nhập</a>
+                                                <Link href="/dang_nhap" className="btn-link-style btn-register"
+                                                    style={{ marginLeft: " 20px", textDecoration: " underline " }}>Đăng nhập</Link>
                                             </div>
                                         </div>
                                     </form>

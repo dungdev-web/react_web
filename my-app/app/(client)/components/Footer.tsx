@@ -1,3 +1,4 @@
+import Link from "next/link"
 import "../style/footer.css"
 export default function Footer() {
     return (
@@ -16,41 +17,41 @@ export default function Footer() {
                     <div className="footer-column">
                         <h3>LIÊN KẾT NHANH</h3>
                         <ul>
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Giới thiệu</a></li>
-                            <li><a href="#">Thực đơn</a></li>
-                            <li><a href="#">Tin tức</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                            <li><a href="#">Nhượng quyền</a></li>
+                            <li><Link href="#">Trang chủ</Link></li>
+                            <li><Link href="#">Giới thiệu</Link></li>
+                            <li><Link href="#">Thực đơn</Link></li>
+                            <li><Link href="#">Tin tức</Link></li>
+                            <li><Link href="#">Liên hệ</Link></li>
+                            <li><Link href="#">Nhượng quyền</Link></li>
                         </ul>
                     </div>
                     <div className="footer-column">
                         <h3>HƯỚNG DẪN SỬ DỤNG</h3>
                         <ul>
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Giới thiệu</a></li>
-                            <li><a href="#">Thực đơn</a></li>
-                            <li><a href="#">Tin tức</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                            <li><a href="#">Nhượng quyền</a></li>
+                            <li><Link href="#">Trang chủ</Link></li>
+                            <li><Link href="#">Giới thiệu</Link></li>
+                            <li><Link href="#">Thực đơn</Link></li>
+                            <li><Link href="#">Tin tức</Link></li>
+                            <li><Link href="#">Liên hệ</Link></li>
+                            <li><Link href="#">Nhượng quyền</Link></li>
                         </ul>
                     </div>
                     <div className="footer-column">
                         <h3>KẾT NỐI VỚI DUALEO</h3>
                         <ul>
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Giới thiệu</a></li>
-                            <li><a href="#">Thực đơn</a></li>
-                            <li><a href="#">Tin tức</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                            <li><a href="#">Nhượng quyền</a></li>
+                            <li><Link href="#">Trang chủ</Link></li>
+                            <li><Link href="#">Giới thiệu</Link></li>
+                            <li><Link href="#">Thực đơn</Link></li>
+                            <li><Link href="#">Tin tức</Link></li>
+                            <li><Link href="#">Liên hệ</Link></li>
+                            <li><Link href="#">Nhượng quyền</Link></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div className="bg-[#222] h-[70px]">
             <div className="footer-bottom">
-                © Bản quyền thuộc về <a href="#">Dualeo</a> | Cung cấp bởi <a href="#">Sapo</a>
+                © Bản quyền thuộc về <Link href="#">Dualeo</Link> | Cung cấp bởi <Link href="#">Sapo</Link>
             </div>
             </div>
         </footer>

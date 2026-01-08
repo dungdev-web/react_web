@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ISanPham } from "./components/cautrucdata";
 import Show1SP from "./components/Show1SP";
 import Banner from "./components/Banner";
-import { clear } from "node:console";
+// import { clear } from "node:console";
 import VoucherDisplay from "./components/voucher";
 import { VoucherDisplayProps } from "./components/cautrucdata";
 import { useState, useEffect } from "react";
@@ -45,7 +45,7 @@ export default  function Home() {
         />
       ))}
       <section className="awe-section1 mb-[30px]">
-        <img className="lazyload loading" alt="alt slider demo"
+        <Image className="lazyload loading" alt="alt slider demo"
           src="//bizweb.dktcdn.net/100/310/257/themes/801944/assets/slider_1.jpg?1676001091788" data-ll-status="loading" />
       </section>
       <Banner />

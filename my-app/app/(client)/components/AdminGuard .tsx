@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
-import { IUser } from "./cautrucdata";
+// import { IUser } from "./cautrucdata";
 import { API_URL } from "../config/config";
 
 interface DecodedToken {
   role: string;
   exp: number;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export default function AdminGuard({ children }: { children: React.ReactNode }) {

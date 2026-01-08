@@ -1,5 +1,4 @@
 "use client";
-import { div } from "motion/react-client";
 import { useState } from "react";
 import "../style/login.css";
 import Swal from "sweetalert2";
@@ -7,10 +6,12 @@ import { auth, googleProvider, db } from "../../../firebaseConfig";
 import { signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { API_URL } from "../config/config";
+import Link from "next/link";
+import Image from "next/image";
 export default function DangNhap() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [resetEmail, setResetEmail] = useState("");
   const [otpToken, setOtpToken] = useState("");
@@ -173,9 +174,9 @@ export default function DangNhap() {
 
               <ul className="breadcrumb">
                 <li className="home">
-                  <a href="/">
+                  <Link href="/">
                     <span>Trang chủ</span>
-                  </a>
+                  </Link>
                   <span> / </span>
                 </li>
 
@@ -193,36 +194,37 @@ export default function DangNhap() {
         <h1 className="title-head">
           <span>Đăng nhập tài khoản</span>
         </h1>
-        {message && <p className="text-red-500">{message}</p>}
 
         <div className="rows">
           <div className="col-lg-6 text-[14px]">
             <div className="page-login margin-bottom-30">
               <div id="login" className="px-4">
                 <div className="social-login  text-left margin-bottom-20 ">
-                  <a
+                  <Link
+                    href="#"
                     className="social-login--facebook mr-[5px]"
                     style={{ display: "inline-block" }}
                   >
-                    <img
-                      width="129px"
-                      height="37px"
+                    <Image
+                      width={129}
+                      height={37}
                       alt="facebook-login-button"
                       src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"
                     />
-                  </a>
+                  </Link>
                   <button onClick={handleGoogleSignIn}>
-                    <a
+                    <Link
+                      href="#"
                       className="social-login--google mr-[5px]"
                       style={{ display: "inline-block" }}
                     >
-                      <img
-                        width="129px"
-                        height="37px"
+                      <Image
+                        width={129}
+                        height={37}
                         alt="google-login-button"
                         src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg"
                       />
-                    </a>
+                    </Link>
                   </button>
                 </div>
                 <span>Nếu bạn đã có tài khoản, đăng nhập tại đây.</span>
@@ -271,7 +273,7 @@ export default function DangNhap() {
                         Đăng nhập
                       </button>
                       {/* <input className="btn btn-primary" type="submit" value="Đăng nhập" /> */}
-                      <a
+                      <Link
                         href="/account/register"
                         className="btn-link-style btn-register"
                         style={{
@@ -280,7 +282,7 @@ export default function DangNhap() {
                         }}
                       >
                         Đăng ký
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </form>

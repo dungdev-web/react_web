@@ -1,7 +1,10 @@
 "use server";
+
+import { API_URL } from "@/app/(client)/config/config";
+
 export default async function handleThemSanPham(formData: FormData) {
   // Lấy giá trị từ formData
-  let sp = {
+  const sp = {
     name: formData.get("name"),
     img: formData.get("img") || null,  
     price: formData.get("price"),
@@ -19,7 +22,7 @@ export default async function handleThemSanPham(formData: FormData) {
   }
 
   // Cấu hình request
-  let opt = {
+  const opt = {
     method: "POST",
     body: JSON.stringify(sp),
     headers: { 'Content-Type': 'application/json' },
@@ -27,7 +30,7 @@ export default async function handleThemSanPham(formData: FormData) {
 
   try {
     // Gửi request và xử lý phản hồi
-    const res = await fetch('http://localhost:3000/api/admin/themsanpham', opt);
+    const res = await fetch(`${API_URL}/api/admin/themsanpham`, opt);
 
     if (!res.ok) {
       throw new Error(`Request failed with status ${res.status}`);
