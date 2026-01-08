@@ -7,8 +7,12 @@ const sequelize = new Sequelize(
   process.env.DB_PASS,
   {
     host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT,
-    logging: false, 
+    port: process.env.DB_PORT,   // 🔥 BẮT BUỘC PHẢI CÓ
+    dialect: process.env.DB_DIALECT || "mysql",
+    logging: false,
+    dialectOptions: {
+      connectTimeout: 60000,
+    },
   }
 );
 
